@@ -13,7 +13,7 @@
                     <Border x:Name="checkBoxBorder" Width="20" Height="20" Background="Transparent" BorderBrush="White" BorderThickness="2" CornerRadius="4">
 
                             <TextBlock x:Name="checkMark" Text="✓"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Opacity="0"/>
-                        </Border>
+                        </Border> 
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
