@@ -16,25 +16,27 @@ using System.Windows.Shapes;
 namespace Graduation_project.View.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для AuthorizationWindow.xaml
+    /// Логика взаимодействия для RegistrationWindow.xaml
     /// </summary>
-    public partial class AuthorizationWindow : MetroWindow
+    public partial class RegistrationWindow : MetroWindow
     {
-        public AuthorizationWindow()
+        public RegistrationWindow()
         {
             InitializeComponent();
+        }
+
+       
+
+        private void AuthorizationBtn_Click(object sender, RoutedEventArgs e)
+        {
+AuthorizationWindow authorizationWindow = new AuthorizationWindow();
+            authorizationWindow.Show();
+            this.Close();
         }
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void RegistrationBtn_Click(object sender, RoutedEventArgs e)
-        {
-RegistrationWindow registration = new RegistrationWindow();
-            registration.Show();
-            this.Close();   
         }
     }
 }
