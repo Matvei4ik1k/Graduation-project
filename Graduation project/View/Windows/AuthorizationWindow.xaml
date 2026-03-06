@@ -116,14 +116,14 @@
             <Border Grid.RowSpan="40" Width="652" Height="auto" Background="#34495E" CornerRadius="50" />
             <TextBlock Grid.Row="2" FontWeight="Bold" Text="Авторизация" FontSize="40" HorizontalAlignment="Center" />
 
-            <TextBlock Grid.Row="4"  TextAlignment="Center" Text="Логин" FontSize="26"    />
+            <TextBlock Grid.Row="4"  TextAlignment="Center" Text="Логин" FontSize="24"    />
             <Border Grid.Row="6" Height="50" Width="440" CornerRadius="15" Background="#46627F" >
-                <TextBox Height="40" Width="415" BorderThickness="0"  FontSize="18" Text="Введите ваш логин" CaretBrush="White"/>
+                <TextBox Height="40" Width="415" BorderThickness="0"  FontSize="18" VerticalContentAlignment="Center" Text="Введите ваш логин" CaretBrush="White"/>
             </Border>
 
-            <TextBlock  Grid.Row="8" TextAlignment="Center" Text="Пароль" FontSize="20"  />
+            <TextBlock  Grid.Row="8" TextAlignment="Center" Text="Пароль" FontSize="24"  />
             <Border Grid.Row="10" Height="50" Width="440" CornerRadius="15" Background="#46627F">
-                <PasswordBox Height="40" Width="415" BorderThickness="0" FontSize="18" Password="Введите ваш пароль" />
+                <PasswordBox Height="40" Width="415" VerticalContentAlignment="Center" BorderThickness="0" FontSize="14" Password="qwerqwer" />
             </Border>
 
             <StackPanel Width="auto" Grid.Row="12" HorizontalAlignment="Center" Orientation="Horizontal">
