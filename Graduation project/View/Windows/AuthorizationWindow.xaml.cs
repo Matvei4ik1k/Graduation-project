@@ -18,7 +18,7 @@ namespace Graduation_project.View.Windows
     /// <summary>
     /// Логика взаимодействия для AuthorizationWindow.xaml
     /// </summary>
-    public partial class AuthorizationWindow : MetroWindow
+    public partial class AuthorizationWindow : Window
     {
         public AuthorizationWindow()
         {

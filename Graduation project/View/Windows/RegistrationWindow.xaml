@@ -1,13 +1,11 @@
-﻿<Controls:MetroWindow  x:Class="Graduation_project.View.Windows.RegistrationWindow"
+﻿<Window  x:Class="Graduation_project.View.Windows.RegistrationWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Graduation_project.View.Windows"
-        mc:Ignorable="d"
-                        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
-               MinHeight="900" MinWidth="1600" Width="1920" Height="1080" 
-        Title="Registration" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize">
+        mc:Ignorable="d" 
+        MinHeight="900" MinWidth="1600" Width="1920" Height="1080" Title="Registration" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize">
 
     <Grid Background="#F5F5F5">
         <Grid.ColumnDefinitions>
@@ -22,7 +20,7 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <!-- ЛЕВАЯ ПАНЕЛЬ - HTML -->
+        <!-- Левая панель -->
         <Border Grid.Column="0" Grid.RowSpan="3" Background="White">
             <Grid>
                 <Border Opacity="0.1">
@@ -34,28 +32,28 @@
                     </Border.Background>
                 </Border>
 
-                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="40">
-                    <TextBlock Text="&lt;/&gt;" FontSize="80" HorizontalAlignment="Center" Margin="0,0,0,20" Foreground="#E44D26"/>
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
+                    <TextBlock Text="&lt;/&gt;" FontSize="80" HorizontalAlignment="Center" Foreground="#E44D26"/>
                     <TextBlock Text="HTML" FontSize="32" FontWeight="Bold" Foreground="#E44D26" HorizontalAlignment="Center" TextAlignment="Center"/>
-                    <TextBlock Text="Язык гипертекстовой разметки" FontSize="16" Foreground="#696969" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,5,0,0"/>
-                    <Rectangle Height="2" Fill="#E44D26" Margin="0,25,0,20" Width="230" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Язык гипертекстовой разметки" FontSize="16" Foreground="#696969" HorizontalAlignment="Center" TextAlignment="Center" />
+                    <Rectangle Height="2" Fill="#E44D26"  Width="230" HorizontalAlignment="Center"/>
 
-                    <StackPanel Margin="0,10">
-                        <TextBlock Text="• Структура веб-страниц" FontSize="14" Foreground="#696969" Margin="0,8" HorizontalAlignment="Center"/>
-                        <TextBlock Text="• Семантическая разметка" FontSize="14" Foreground="#696969" Margin="0,8" HorizontalAlignment="Center"/>
-                        <TextBlock Text="• Формы и таблицы" FontSize="14" Foreground="#696969" Margin="0,8" HorizontalAlignment="Center"/>
-                        <TextBlock Text="• Доступность" FontSize="14" Foreground="#696969" Margin="0,8" HorizontalAlignment="Center"/>
+                    <StackPanel >
+                        <TextBlock Text="• Структура веб-страниц" FontSize="14" Foreground="#696969" HorizontalAlignment="Center"/>
+                        <TextBlock Text="• Семантическая разметка" FontSize="14" Foreground="#696969" HorizontalAlignment="Center"/>
+                        <TextBlock Text="• Формы и таблицы" FontSize="14" Foreground="#696969"  HorizontalAlignment="Center"/>
+                        <TextBlock Text="• Доступность" FontSize="14" Foreground="#696969"  HorizontalAlignment="Center"/>
                     </StackPanel>
 
-                    <Border Background="#FFF5F2" CornerRadius="8" Padding="12" Margin="0,25,0,0" BorderThickness="1" BorderBrush="#FFE0D6">
-                        <TextBlock Text="&lt;div class=&quot;container&quot;&gt;&#x0a;  &lt;h1&gt;Заголовок&lt;/h1&gt;&#x0a;  &lt;p&gt;Абзац текста&lt;/p&gt;&#x0a;&lt;/div&gt;" 
-                          FontSize="11" Foreground="#E44D26" TextAlignment="Left" FontFamily="Consolas"/>
+                    <Border Background="#FFF5F2" CornerRadius="8" Padding="12"  BorderThickness="1" BorderBrush="#FFE0D6">
+                        <TextBlock Text="&lt;div class=&quot;container&quot;&gt;&#x0a;  &lt;h1&gt;Заголовок&lt;/h1&gt;&#x0a;  &lt;p&gt;Абзац текста&lt;/p&gt;&#x0a;&lt;/div&gt;" FontSize="11" Foreground="#E44D26" TextAlignment="Left" FontFamily="Consolas"/>
                     </Border>
                 </StackPanel>
             </Grid>
         </Border>
 
-        <!-- ЦЕНТРАЛЬНАЯ ПАНЕЛЬ -->
+        
+        <!-- Центральная панель -->
         <Border Grid.Column="1" Grid.RowSpan="20" Background="#2C3E50" CornerRadius="50"/>
 
         <Grid Grid.Column="1" Grid.Row="1">
@@ -81,7 +79,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-            
+
             <Border Grid.RowSpan="40" Width="652" Height="auto" Background="#34495E" CornerRadius="50" />
 
             <TextBlock Grid.Row="2" Text="Регистрация" Foreground="White" FontSize="40" HorizontalAlignment="Center" FontWeight="Light" />
@@ -89,98 +87,53 @@
             <TextBlock Grid.Row="4" TextAlignment="Center" Text="Придумайте логин" FontSize="26" Foreground="White" FontWeight="SemiBold" />
 
             <Border Grid.Row="6" Height="50" Width="440" CornerRadius="15" Background="#46627F" >
-                <TextBox Height="40" Width="415" Background="Transparent" BorderThickness="0" Foreground="White"
-                        FontSize="18"
-                        Controls:TextBoxHelper.Watermark="Введите ваш логин"
-                        Controls:TextBoxHelper.ClearTextButton="True"
-                        CaretBrush="White"/>
+                <TextBox Height="40" Width="415" Background="Transparent" BorderThickness="0" Foreground="White" FontSize="18" Text="Введите ваш логин" CaretBrush="White"/>
             </Border>
 
             <TextBlock Grid.Row="8" TextAlignment="Center" Text="Придумайте пароль" FontSize="26" Foreground="White" FontWeight="SemiBold" />
 
             <Border Grid.Row="10" Height="50" Width="440" CornerRadius="15" Background="#46627F">
-                <PasswordBox
-                            Height="40" 
-                            Width="415" 
-                            Background="Transparent" 
-                            BorderThickness="0"
-                            FontSize="18"
-                            Controls:TextBoxHelper.Watermark="Введите ваш пароль"
-                            Controls:TextBoxHelper.ClearTextButton="True"
-                            Foreground="White"/>
+                <PasswordBox Height="40" Width="415" Background="Transparent" BorderThickness="0" FontSize="18" Password="Введите ваш пароль" Foreground="White"/>
             </Border>
 
             <TextBlock Grid.Row="12" TextAlignment="Center" Text="Повторите пароль" FontSize="26" Foreground="White" FontWeight="SemiBold" />
 
             <Border Grid.Row="14" Height="50" Width="440" CornerRadius="15" Background="#46627F">
-                <PasswordBox
-                Height="40" 
-                Width="415" 
-                Background="Transparent" 
-                BorderThickness="0"
-                FontSize="18"
-                Controls:TextBoxHelper.Watermark="Введите ваш пароль"
-                Controls:TextBoxHelper.ClearTextButton="True"
-                Foreground="White"/>
+                <PasswordBox Height="40" Width="415" Background="Transparent" BorderThickness="0" FontSize="18" Password="Введите ваш пароль" Foreground="White"/>
             </Border>
-            
-           
 
-           
+            <Button Grid.Row="16" Height="60" Width="400" Content="Войти" FontSize="24" Background="#3498DB" Foreground="White" BorderThickness="0" Name="LoginBtn" Click="LoginBtn_Click"/>
 
-            <Button Grid.Row="16" 
-                    Height="60" Width="400"
-                    Content="Войти" 
-                    FontSize="24" 
-                    Background="#3498DB"
-                    Foreground="White"
-                    BorderThickness="0"
-                    Style="{StaticResource MahApps.Styles.Button}"
-                    Name="LoginBtn"
-                    Click="LoginBtn_Click"
-                    Controls:ControlsHelper.ContentCharacterCasing="Normal"/>
-
-            <Button 
-                    Content="Авторизоваться" 
-                    FontSize="18" 
-                    Grid.Row="18" 
-                    BorderBrush="Transparent" 
-                    Background="Transparent" 
-                    Foreground="White" 
-                    Name="AuthorizationBtn"
-                    Click="AuthorizationBtn_Click"
-                Controls:ControlsHelper.ContentCharacterCasing="Normal"/>
+            <Button Content="Авторизоваться" FontSize="18" Grid.Row="18" BorderBrush="Transparent" Background="Transparent"  Foreground="White" Name="AuthorizationBtn" Click="AuthorizationBtn_Click"
+              />
         </Grid>
 
-        <!-- ПРАВАЯ ПАНЕЛЬ - CSS -->
+        <!-- Правая панель -->
         <Border Grid.Column="2" Grid.RowSpan="3" Background="White">
             <Grid>
-                <!-- Градиент в цветах CSS -->
                 <Border Opacity="0.08">
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                             <GradientStop Color="#264DE4" Offset="0"/>
-                            <!-- CSS синий -->
                             <GradientStop Color="#2965F1" Offset="1"/>
-                            <!-- CSS синий -->
                         </LinearGradientBrush>
                     </Border.Background>
                 </Border>
 
-                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="40">
-                    <TextBlock Text="{}" FontSize="80" HorizontalAlignment="Center" Margin="0,0,0,20" Foreground="#264DE4"/>
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
+                    <TextBlock Text="{}{ }" FontSize="80" HorizontalAlignment="Center"  Foreground="#264DE4"/>
                     <TextBlock Text="CSS" FontSize="32" FontWeight="Bold" Foreground="#264DE4" HorizontalAlignment="Center" TextAlignment="Center"/>
-                    <TextBlock Text="Каскадные таблицы стилей" FontSize="16" Foreground="#696969" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,5,0,0"/>
-                    <Rectangle Height="2" Fill="#264DE4" Margin="0,25,0,20" Width="220" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Каскадные таблицы стилей" FontSize="16" Foreground="#696969" HorizontalAlignment="Center" TextAlignment="Center" />
+                    <Rectangle Height="2" Fill="#264DE4"  Width="220" HorizontalAlignment="Center"/>
 
-                    <StackPanel Margin="0,10">
-                        <TextBlock Text="• Стилизация элементов" FontSize="14" Foreground="#696969" Margin="0,8" HorizontalAlignment="Center"/>
-                        <TextBlock Text="• Адаптивный дизайн" FontSize="14" Foreground="#696969" Margin="0,8" HorizontalAlignment="Center"/>
-                        <TextBlock Text="• Flexbox и Grid" FontSize="14" Foreground="#696969" Margin="0,8" HorizontalAlignment="Center"/>
-                        <TextBlock Text="• Анимации и переходы" FontSize="14" Foreground="#696969" Margin="0,8" HorizontalAlignment="Center"/>
+                    <StackPanel>
+                        <TextBlock Text="• Стилизация элементов" FontSize="14" Foreground="#696969" HorizontalAlignment="Center"/>
+                        <TextBlock Text="• Адаптивный дизайн" FontSize="14" Foreground="#696969"  HorizontalAlignment="Center"/>
+                        <TextBlock Text="• Flexbox и Grid" FontSize="14" Foreground="#696969"  HorizontalAlignment="Center"/>
+                        <TextBlock Text="• Анимации и переходы" FontSize="14" Foreground="#696969" HorizontalAlignment="Center"/>
                     </StackPanel>
 
-                    <Border Background="#F0F5FF" CornerRadius="8" Padding="12" Margin="0,25,0,0" BorderThickness="1" BorderBrush="#D6E4FF">
+                    <Border Background="#F0F5FF" CornerRadius="8" Padding="12" BorderThickness="1" BorderBrush="#D6E4FF">
                         <TextBlock Text=".container {&#x0a;  display: flex;&#x0a;  justify-content: center;&#x0a;  background: #f5f5f5;&#x0a;}" 
                                    FontSize="11" Foreground="#264DE4" TextAlignment="Left" FontFamily="Consolas" LineHeight="1.3"/>
                     </Border>
@@ -188,4 +141,4 @@
             </Grid>
         </Border>
     </Grid>
-</Controls:MetroWindow>
+</Window>

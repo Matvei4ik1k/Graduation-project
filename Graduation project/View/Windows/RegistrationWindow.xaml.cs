@@ -18,7 +18,7 @@ namespace Graduation_project.View.Windows
     /// <summary>
     /// Логика взаимодействия для RegistrationWindow.xaml
     /// </summary>
-    public partial class RegistrationWindow : MetroWindow
+    public partial class RegistrationWindow : Window
     {
         public RegistrationWindow()
         {
