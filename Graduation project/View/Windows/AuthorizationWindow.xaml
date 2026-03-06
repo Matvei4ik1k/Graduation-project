@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
 
         <!-- Левая панель -->
-        <Border Grid.Column="0" Grid.RowSpan="3" Background="White">
+        <Border Grid.Column="0" Grid.RowSpan="3">
             <Grid>
                 <Border Opacity="0.1">
                     <Border.Background>
@@ -83,38 +83,35 @@
 
             <Border Grid.RowSpan="40" Width="652" Height="auto" Background="#34495E" CornerRadius="50" />
 
-            <TextBlock Grid.Row="2" Text="Авторизация" Foreground="White" FontSize="40" HorizontalAlignment="Center" FontWeight="Light" />
+            <TextBlock Grid.Row="2" FontWeight="Bold" Text="Авторизация" FontSize="40" HorizontalAlignment="Center" />
 
-            <TextBlock Grid.Row="4" TextAlignment="Center" Text="Логин" FontSize="26" Foreground="White" FontWeight="SemiBold" />
+            <TextBlock Grid.Row="4"  TextAlignment="Center" Text="Логин" FontSize="26"    />
 
             <Border Grid.Row="6" Height="50" Width="440" CornerRadius="15" Background="#46627F" >
-                <TextBox Height="40" Width="415" Background="Transparent" BorderThickness="0" Foreground="White"
-                        FontSize="18"
-                        Text="Введите ваш логин"
-                        CaretBrush="White"/>
+                <TextBox Height="40" Width="415" BorderThickness="0"  FontSize="18" Text="Введите ваш логин" CaretBrush="White"/>
             </Border>
 
-            <TextBlock Grid.Row="8" TextAlignment="Center" Text="Пароль" FontSize="26" Foreground="White" FontWeight="SemiBold" />
+            <TextBlock  Grid.Row="8" TextAlignment="Center" Text="Пароль" FontSize="20"  />
 
             <Border Grid.Row="10" Height="50" Width="440" CornerRadius="15" Background="#46627F">
-                <PasswordBox Height="40" Width="415" Background="Transparent" BorderThickness="0" FontSize="18" Password="Введите ваш пароль" Foreground="White"/>
+                <PasswordBox Height="40" Width="415" BorderThickness="0" FontSize="18" Password="Введите ваш пароль" />
             </Border>
 
             <StackPanel Width="auto" Grid.Row="12" HorizontalAlignment="Center" Orientation="Horizontal">
                 <CheckBox 
-           Foreground="White"/> 
-                <TextBlock Text="Запомнить меня" Foreground="White" Height="30" FontSize="18"  VerticalAlignment="Center"/>
+           /> 
+                <TextBlock Text="Запомнить меня"  Height="30" FontSize="18"  VerticalAlignment="Center"/>
             </StackPanel>
 
-            <Button FontSize="18" BorderBrush="Transparent" Background="Transparent" Foreground="White" Content="Забыли пароль?" Grid.Row="14"/>
+            <Button FontSize="18"   Content="Забыли пароль?" Grid.Row="14" />
 
-            <Button Grid.Row="16" Height="60" Width="400" Content="Войти" FontSize="24" Background="#3498DB" Foreground="White" BorderThickness="0" Name="LoginBtn" Click="LoginBtn_Click" />
+            <Button Grid.Row="16" Height="60" Width="400" Content="Войти" FontSize="24" Background="#3498DB"   BorderThickness="0" Name="LoginBtn" Click="LoginBtn_Click" />
 
-            <Button Name="RegistrationBtn" Content="Создать новый аккаунт" FontSize="18" Grid.Row="18" BorderBrush="Transparent" Background="Transparent" Foreground="White" Click="RegistrationBtn_Click"/>
+            <Button Name="RegistrationBtn" Content="Создать новый аккаунт" FontSize="18" Grid.Row="18"    Click="RegistrationBtn_Click" />
         </Grid>
 
         <!-- Правая панель -->
-        <Border Grid.Column="2" Grid.RowSpan="3" Background="White">
+        <Border Grid.Column="2" Grid.RowSpan="3">
             <Grid>
                 <Border Opacity="0.08">
                     <Border.Background>

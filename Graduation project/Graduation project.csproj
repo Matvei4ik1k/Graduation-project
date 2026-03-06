@@ -10,11 +10,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\Inter-Bold.ttf" />
+    <None Remove="Fonts\Inter-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="View\Pages\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MahApps.Metro" Version="2.4.11" />
+    <Resource Include="Fonts\Inter-Bold.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Inter-Regular.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
