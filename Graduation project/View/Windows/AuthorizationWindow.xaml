@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Graduation_project.View.Windows"
         mc:Ignorable="d"
-        MinHeight="900" MinWidth="1600" Width="1920" Height="1080" 
-        Title="Authorization" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize">
+        MinHeight="900" MinWidth="1600" Width="1920" Height="1080" Title="Authorization" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize">
 
     <Grid Background="#F5F5F5">
         <Grid.ColumnDefinitions>
@@ -133,7 +132,7 @@
 
             <Button FontSize="18"   Content="Забыли пароль?" Grid.Row="14" />
             <Button Grid.Row="16" Height="60" Width="400" Content="Войти" FontSize="24" Background="#3498DB"   BorderThickness="0" Name="LoginBtn" Click="LoginBtn_Click" />
-            <Button Name="RegistrationBtn" Content="Создать новый аккаунт" FontSize="18" Grid.Row="18" Click="RegistrationBtn_Click" />
+            <Button Name="RegistrationBtn" Foreground="Black" Content="Создать новый аккаунт" FontSize="18" Grid.Row="18" Click="RegistrationBtn_Click" />
         </Grid>
 
         <!-- Правая панель -->
