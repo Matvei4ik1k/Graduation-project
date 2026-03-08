@@ -1,0 +1,229 @@
+﻿<Window x:Class="Graduation_project.View.Windows.TheoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Graduation_project.View.Windows"
+        mc:Ignorable="d"
+            MinHeight="900" MinWidth="1600" Width="1920" Height="1350" Title="TheoryWindow" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize">
+    <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+        <Grid Background="#EFEFEF">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <!--Header-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="4"/>
+                    <RowDefinition Height="12"/>
+                    <RowDefinition Height="1"/>
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition Width="0.1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="2" Foreground="Black" Grid.Row="2" Content="CodeCraft" FontSize="30" FontWeight="Bold"/>
+                <Button Grid.Column="4" Grid.Row="2" Foreground="Black" Content="Главная" FontSize="24"/>
+                <Rectangle Grid.Column="4" Grid.Row="3" Fill="Black" Width="94"/>
+                <Button Grid.Column="6" Grid.Row="2" Foreground="Black" Content="Теория" FontSize="24"/>
+                <Button Grid.Column="8" Grid.Row="2" Foreground="Black" Content="Курсы" FontSize="24"/>
+                <Button Grid.Column="10" Grid.Row="2" Foreground="Black" Content="Песочница" FontSize="24"/>
+                <Button Grid.Column="12" Grid.Row="2" Foreground="Black" Content="Прогресс" FontSize="24"/>
+                <Button Grid.Column="14" Grid.Row="2" Foreground="Black" Content="Настройки" FontSize="24"/>
+                <Rectangle Grid.Column="4" Grid.ColumnSpan="11" Grid.Row="5" Fill="Black" Width="1200"/>
+                <Button FontSize="24"  Foreground="Black" Grid.Column="17" Grid.Row="2" Content="Matvei4ik"/>
+                <Button FontSize="24"  Foreground="Black" Grid.Column="18" Grid.Row="2" Content="RU"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="Каталог книг" FontSize="34" FontWeight="Bold" Foreground="Black"/>
+                <TextBlock Grid.Row="4" HorizontalAlignment="Center" Foreground="#6B7280" Text="Подборка книг для изучения веб-технологий: от основ HTML до современных CSS-приёмов." FontSize="14" FontWeight="Regular"/>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="390"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="390"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="390"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="390"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="250"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="85"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="60"/>
+
+                    <RowDefinition Height="250"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="85"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="60"/>
+
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="2" Grid.Column="2" Grid.RowSpan="8" Background="White" CornerRadius="10" />
+                <TextBlock Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" Text="HTML5 Основы" Foreground="Black" FontWeight="Bold" FontSize="26"/>
+                <TextBlock Grid.Row="6" Grid.Column="2" TextAlignment="Justify" Width="310" TextWrapping="Wrap" HorizontalAlignment="Center" Text="Познакомьтесь с основными тегами: заголовки, абзацы, ссылки и изображения. Узнайте, как создать правильную структуру документа с помощью семантических элементов." Foreground="#4B5563" FontWeight="Regular" FontSize="14"/>
+                <Border Grid.Row="8" Grid.Column="2" CornerRadius="8" Background="Black" Width="260" HorizontalAlignment="Center">
+                    <Button FontSize="14" Width="260" Content="Читать"/>
+                </Border>
+
+                <Image Grid.Row="2" Stretch="UniformToFill" VerticalAlignment="Center" Grid.Column="2" Source="/Image/Book.png" >
+                    <Image.Clip>
+                        <RectangleGeometry Rect="0,0,390,400"/>
+                    </Image.Clip>
+                </Image>
+
+
+                <Border Grid.Row="2" Grid.Column="4" Grid.RowSpan="8" Background="White" CornerRadius="10" />
+                <TextBlock Grid.Row="4" Grid.Column="4" HorizontalAlignment="Center" Text="HTML5 Основы" Foreground="Black" FontWeight="Bold" FontSize="26"/>
+                <TextBlock Grid.Row="6" Grid.Column="4" TextAlignment="Justify" Width="310" TextWrapping="Wrap" HorizontalAlignment="Center" Text="Познакомьтесь с основными тегами: заголовки, абзацы, ссылки и изображения. Узнайте, как создать правильную структуру документа с помощью семантических элементов." Foreground="#4B5563" FontWeight="Regular" FontSize="14"/>
+                <Border Grid.Row="8" Grid.Column="4" CornerRadius="8" Background="Black" Width="260" HorizontalAlignment="Center">
+                    <Button FontSize="14" Width="260" Content="Читать"/>
+                </Border>
+
+                <Image Grid.Row="2" Grid.Column="4" Stretch="UniformToFill" VerticalAlignment="Center" Source="/Image/Book.png" >
+                    <Image.Clip>
+                        <RectangleGeometry Rect="0,0,390,400"/>
+                    </Image.Clip>
+                </Image>
+
+                <Border Grid.Row="2" Grid.Column="6" Grid.RowSpan="8" Background="White" CornerRadius="10" />
+                <TextBlock Grid.Row="4" Grid.Column="6" HorizontalAlignment="Center" Text="HTML5 Основы" Foreground="Black" FontWeight="Bold" FontSize="26"/>
+                <TextBlock Grid.Row="6" Grid.Column="6" TextAlignment="Justify" Width="310" TextWrapping="Wrap" HorizontalAlignment="Center" Text="Познакомьтесь с основными тегами: заголовки, абзацы, ссылки и изображения. Узнайте, как создать правильную структуру документа с помощью семантических элементов." Foreground="#4B5563" FontWeight="Regular" FontSize="14"/>
+                <Border Grid.Row="8" Grid.Column="6" CornerRadius="8" Background="Black" Width="260" HorizontalAlignment="Center">
+                    <Button FontSize="14" Width="260" Content="Читать"/>
+                </Border>
+
+                <Image Grid.Row="2" Grid.Column="6" Stretch="UniformToFill" VerticalAlignment="Center" Source="/Image/Book.png" >
+                    <Image.Clip>
+                        <RectangleGeometry Rect="0,0,390,400"/>
+                    </Image.Clip>
+                </Image>
+
+                <Border Grid.Row="2" Grid.Column="8" Grid.RowSpan="8" Background="White" CornerRadius="10" />
+                <TextBlock Grid.Row="4" Grid.Column="8" HorizontalAlignment="Center" Text="HTML5 Основы" Foreground="Black" FontWeight="Bold" FontSize="26"/>
+                <TextBlock Grid.Row="6" Grid.Column="8" TextAlignment="Justify" Width="310" TextWrapping="Wrap" HorizontalAlignment="Center" Text="Познакомьтесь с основными тегами: заголовки, абзацы, ссылки и изображения. Узнайте, как создать правильную структуру документа с помощью семантических элементов." Foreground="#4B5563" FontWeight="Regular" FontSize="14"/>
+                <Border Grid.Row="8" Grid.Column="8" CornerRadius="8" Background="Black" Width="260" HorizontalAlignment="Center">
+                    <Button FontSize="14" Width="260" Content="Читать"/>
+                </Border>
+
+                <Image Grid.Row="2" Grid.Column="8" Stretch="UniformToFill" VerticalAlignment="Center" Source="/Image/Book.png" >
+                    <Image.Clip>
+                        <RectangleGeometry Rect="0,0,390,400"/>
+                    </Image.Clip>
+                </Image>
+
+
+                <Border Grid.Row="12" Grid.Column="2" Grid.RowSpan="8" Background="White" CornerRadius="10" />
+                <TextBlock Grid.Row="14" Grid.Column="2" HorizontalAlignment="Center" Text="HTML5 Основы" Foreground="Black" FontWeight="Bold" FontSize="26"/>
+                <TextBlock Grid.Row="16" Grid.Column="2" TextAlignment="Justify" Width="310" TextWrapping="Wrap" HorizontalAlignment="Center" Text="Познакомьтесь с основными тегами: заголовки, абзацы, ссылки и изображения. Узнайте, как создать правильную структуру документа с помощью семантических элементов." Foreground="#4B5563" FontWeight="Regular" FontSize="14"/>
+                <Border Grid.Row="18" Grid.Column="2" CornerRadius="8" Background="Black" Width="260" HorizontalAlignment="Center">
+                    <Button FontSize="14" Width="260" Content="Читать"/>
+                </Border>
+
+                <Image Grid.Row="12" Stretch="UniformToFill" VerticalAlignment="Center" Grid.Column="2" Source="/Image/Book.png" >
+                    <Image.Clip>
+                        <RectangleGeometry Rect="0,0,390,400"/>
+                    </Image.Clip>
+                </Image>
+
+
+                <Border Grid.Row="12" Grid.Column="4" Grid.RowSpan="8" Background="White" CornerRadius="10" />
+                <TextBlock Grid.Row="14" Grid.Column="4" HorizontalAlignment="Center" Text="HTML5 Основы" Foreground="Black" FontWeight="Bold" FontSize="26"/>
+                <TextBlock Grid.Row="16" Grid.Column="4" TextAlignment="Justify" Width="310" TextWrapping="Wrap" HorizontalAlignment="Center" Text="Познакомьтесь с основными тегами: заголовки, абзацы, ссылки и изображения. Узнайте, как создать правильную структуру документа с помощью семантических элементов." Foreground="#4B5563" FontWeight="Regular" FontSize="14"/>
+                <Border Grid.Row="18" Grid.Column="4" CornerRadius="8" Background="Black" Width="260" HorizontalAlignment="Center">
+                    <Button FontSize="14" Width="260" Content="Читать"/>
+                </Border>
+
+                <Image Grid.Row="12" Grid.Column="4" Stretch="UniformToFill" VerticalAlignment="Center" Source="/Image/Book.png" >
+                    <Image.Clip>
+                        <RectangleGeometry Rect="0,0,390,400"/>
+                    </Image.Clip>
+                </Image>
+
+                <Border Grid.Row="12" Grid.Column="6" Grid.RowSpan="8" Background="White" CornerRadius="10" />
+                <TextBlock Grid.Row="14" Grid.Column="6" HorizontalAlignment="Center" Text="HTML5 Основы" Foreground="Black" FontWeight="Bold" FontSize="26"/>
+                <TextBlock Grid.Row="16" Grid.Column="6" TextAlignment="Justify" Width="310" TextWrapping="Wrap" HorizontalAlignment="Center" Text="Познакомьтесь с основными тегами: заголовки, абзацы, ссылки и изображения. Узнайте, как создать правильную структуру документа с помощью семантических элементов." Foreground="#4B5563" FontWeight="Regular" FontSize="14"/>
+                <Border Grid.Row="18" Grid.Column="6" CornerRadius="8" Background="Black" Width="260" HorizontalAlignment="Center">
+                    <Button FontSize="14" Width="260" Content="Читать"/>
+                </Border>
+
+                <Image Grid.Row="12" Grid.Column="6" Stretch="UniformToFill" VerticalAlignment="Center" Source="/Image/Book.png" >
+                    <Image.Clip>
+                        <RectangleGeometry Rect="0,0,390,400"/>
+                    </Image.Clip>
+                </Image>
+
+                <Border Grid.Row="12" Grid.Column="8" Grid.RowSpan="8" Background="White" CornerRadius="10" />
+                <TextBlock Grid.Row="14" Grid.Column="8" HorizontalAlignment="Center" Text="HTML5 Основы" Foreground="Black" FontWeight="Bold" FontSize="26"/>
+                <TextBlock Grid.Row="16" Grid.Column="8" TextAlignment="Justify" Width="310" TextWrapping="Wrap" HorizontalAlignment="Center" Text="Познакомьтесь с основными тегами: заголовки, абзацы, ссылки и изображения. Узнайте, как создать правильную структуру документа с помощью семантических элементов." Foreground="#4B5563" FontWeight="Regular" FontSize="14"/>
+                <Border Grid.Row="18" Grid.Column="8" CornerRadius="8" Background="Black" Width="260" HorizontalAlignment="Center">
+                    <Button FontSize="14" Width="260" Content="Читать"/>
+                </Border>
+
+                <Image Grid.Row="12" Grid.Column="8" Stretch="UniformToFill" VerticalAlignment="Center" Source="/Image/Book.png" >
+                    <Image.Clip>
+                        <RectangleGeometry Rect="0,0,390,400"/>
+                    </Image.Clip>
+                </Image>
+
+
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Window>
