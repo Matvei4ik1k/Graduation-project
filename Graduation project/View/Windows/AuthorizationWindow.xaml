@@ -132,7 +132,7 @@
 
             <Button FontSize="18"   Content="Забыли пароль?" Grid.Row="14" />
             <Button Grid.Row="16" Height="60" Width="400" Content="Войти" FontSize="24" Background="#3498DB"   BorderThickness="0" Name="LoginBtn" Click="LoginBtn_Click" />
-            <Button Name="RegistrationBtn" Foreground="Black" Content="Создать новый аккаунт" FontSize="18" Grid.Row="18" Click="RegistrationBtn_Click" />
+            <Button Name="RegistrationBtn" Foreground="White" Content="Создать новый аккаунт" FontSize="18" Grid.Row="18" Click="RegistrationBtn_Click" />
         </Grid>
 
         <!-- Правая панель -->

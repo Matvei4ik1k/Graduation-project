@@ -12,6 +12,8 @@
   <ItemGroup>
     <None Remove="Fonts\Inter-Bold.ttf" />
     <None Remove="Fonts\Inter-Regular.ttf" />
+    <None Remove="Icons\icons8-листы-96.png" />
+    <None Remove="Icons\icons8-часы-96.png" />
     <None Remove="Image\Book.png" />
   </ItemGroup>
 
@@ -24,6 +26,12 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Fonts\Inter-Regular.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\icons8-листы-96.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\icons8-часы-96.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Image\Book.png">
