@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Graduation_project.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,27 @@ namespace Graduation_project.View.Windows
     /// </summary>
     public partial class TheoryWindow : Window
     {
+        GraduationProjectContext graduationProjectContext = new GraduationProjectContext();
+        List<Book> allBooks;
         public TheoryWindow()
         {
             InitializeComponent();
+            allBooks = graduationProjectContext.Books.ToList();
+            BookList.ItemsSource = allBooks;
+        }
+        private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (allBooks == null)
+                return;
+
+            string text = SearchTb.Text.ToLower();
+
+            var filtered = allBooks
+                .Where(b => !string.IsNullOrEmpty(b.Name) &&
+                            b.Name.ToLower().Contains(text))
+                .ToList();
+
+            BookList.ItemsSource = filtered;
         }
 
         private void HomeBtn_Click(object sender, RoutedEventArgs e)
@@ -52,5 +71,6 @@ namespace Graduation_project.View.Windows
         {
 
         }
+
     }
 }
