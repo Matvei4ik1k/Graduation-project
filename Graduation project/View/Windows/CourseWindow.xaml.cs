@@ -23,5 +23,34 @@ namespace Graduation_project.View.Windows
         {
             InitializeComponent();
         }
+
+        private void HomeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void TheoryBtn_Click(object sender, RoutedEventArgs e)
+        {
+            TheoryWindow theoryWindow = new TheoryWindow();
+            theoryWindow.Show();
+            this.Close();
+        }
+
+        private void SandboxBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ProgressBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SettingsBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

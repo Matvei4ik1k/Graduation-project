@@ -49,13 +49,13 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Grid.Column="2" Foreground="Black" Grid.Row="2" Content="CodeCraft" FontSize="30" FontWeight="Bold"/>
-                <Button Grid.Column="4" Grid.Row="2" Foreground="Black" Content="Главная" FontSize="24"/>
-                <Rectangle Grid.Column="4" Grid.Row="3" Fill="Black" Width="94"/>
-                <Button Grid.Column="6" Grid.Row="2" Foreground="Black" Content="Теория" FontSize="24"/>
-                <Button Grid.Column="8" Grid.Row="2" Foreground="Black" Content="Курсы" FontSize="24"/>
-                <Button Grid.Column="10" Grid.Row="2" Foreground="Black" Content="Песочница" FontSize="24"/>
-                <Button Grid.Column="12" Grid.Row="2" Foreground="Black" Content="Прогресс" FontSize="24"/>
-                <Button Grid.Column="14" Grid.Row="2" Foreground="Black" Content="Настройки" FontSize="24"/>
+                <Button Grid.Column="4" Grid.Row="2" Foreground="Black" x:Name="HomeBtn" Content="Главная" FontSize="24" Click="HomeBtn_Click"/>
+                <Button Grid.Column="6" Grid.Row="2" Foreground="Black" x:Name="TheoryBtn" Content="Теория" FontSize="24"/>
+                <Rectangle Grid.Column="6" Grid.Row="3" Fill="Black" Width="89"/>
+                <Button Grid.Column="8" Grid.Row="2" Foreground="Black" x:Name="CourceBtn" Content="Курсы" FontSize="24" Click="CourceBtn_Click"/>
+                <Button Grid.Column="10" Grid.Row="2" Foreground="Black" x:Name="SandboxBtn" Content="Песочница" FontSize="24" Click="SandboxBtn_Click"/>
+                <Button Grid.Column="12" Grid.Row="2" Foreground="Black" x:Name="ProgressBtn" Content="Прогресс" FontSize="24" Click="ProgressBtn_Click"/>
+                <Button Grid.Column="14" Grid.Row="2" Foreground="Black" x:Name="SettingsBtn" Content="Настройки" FontSize="24" Click="SettingsBtn_Click"/>
                 <Rectangle Grid.Column="4" Grid.ColumnSpan="11" Grid.Row="5" Fill="Black" Width="1200"/>
                 <Button FontSize="24"  Foreground="Black" Grid.Column="17" Grid.Row="2" Content="Matvei4ik"/>
                 <Button FontSize="24"  Foreground="Black" Grid.Column="18" Grid.Row="2" Content="RU"/>
@@ -72,8 +72,21 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="2" HorizontalAlignment="Center" Text="Каталог книг" FontSize="34" FontWeight="Bold" Foreground="Black"/>
-                <TextBlock Grid.Row="4" HorizontalAlignment="Center" Foreground="#6B7280" Text="Подборка книг для изучения веб-технологий: от основ HTML до современных CSS-приёмов." FontSize="14" FontWeight="Regular"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition Width="1448"/>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition Width="12"/>
+                    <ColumnDefinition Width="320"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" Padding="34 8 10 9" CornerRadius="10" Background="White">
+                    <TextBox Text="Поиск книг" VerticalContentAlignment="Center" BorderThickness="0" FontSize="16" Foreground="Black" Width="276" Height="24"  Opacity="0.25"/>
+                </Border>
+                <Image Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="22" Height="25" Source="/Icons/icons8-лупа-90.png" />
+                <TextBlock Grid.Row="2" Grid.ColumnSpan="6" HorizontalAlignment="Center" Text="Каталог книг" FontSize="34" FontWeight="Bold" Foreground="Black"/>
+                <TextBlock Grid.Row="4" Grid.ColumnSpan="6" HorizontalAlignment="Center" Foreground="#6B7280" Text="Подборка книг для изучения веб-технологий: от основ HTML до современных CSS-приёмов." FontSize="14" FontWeight="Regular"/>
             </Grid>
 
             <Grid Grid.Row="2">

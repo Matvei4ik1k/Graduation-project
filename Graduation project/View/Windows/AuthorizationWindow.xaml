@@ -117,12 +117,12 @@
 
             <TextBlock Grid.Row="4"  TextAlignment="Center" Text="Логин" FontSize="24"    />
             <Border Grid.Row="6" Height="50" Width="440" CornerRadius="15" Background="#46627F" >
-                <TextBox Height="40" Width="415" BorderThickness="0"  FontSize="18" VerticalContentAlignment="Center" Text="Введите ваш логин" CaretBrush="White"/>
+                <TextBox Height="40" Width="415" BorderThickness="0" x:Name="LoginTb" FontSize="18" VerticalContentAlignment="Center" Text="Введите ваш логин" CaretBrush="White"/>
             </Border>
 
             <TextBlock  Grid.Row="8" TextAlignment="Center" Text="Пароль" FontSize="24"  />
             <Border Grid.Row="10" Height="50" Width="440" CornerRadius="15" Background="#46627F">
-                <PasswordBox Height="40" Width="415" VerticalContentAlignment="Center" BorderThickness="0" FontSize="14" Password="qwerqwer" />
+                <PasswordBox Height="40" Width="415" x:Name="PasswordPb" VerticalContentAlignment="Center" BorderThickness="0" FontSize="14" Password="qwerqwer" />
             </Border>
 
             <StackPanel Width="auto" Grid.Row="12" HorizontalAlignment="Center" Orientation="Horizontal">
@@ -130,9 +130,11 @@
                 <TextBlock Text="Запомнить меня"  Height="30" FontSize="18"  VerticalAlignment="Center"/>
             </StackPanel>
 
-            <Button FontSize="18"   Content="Забыли пароль?" Grid.Row="14" />
-            <Button Grid.Row="16" Height="60" Width="400" Content="Войти" FontSize="24" Background="#3498DB"   BorderThickness="0" Name="LoginBtn" Click="LoginBtn_Click" />
-            <Button Name="RegistrationBtn" Foreground="White" Content="Создать новый аккаунт" FontSize="18" Grid.Row="18" Click="RegistrationBtn_Click" />
+            <Button FontSize="18" Width="150"  Content="Забыли пароль?" Grid.Row="14" />
+            <Border Grid.Row="16" Background="#3498DB" Width="400" CornerRadius="10" >
+                <Button  Height="60" Width="400" Content="Войти" FontSize="24" Name="LoginBtn" Click="LoginBtn_Click" />
+            </Border>
+            <Button Name="RegistrationBtn" Width="210" Foreground="White" Content="Создать новый аккаунт" FontSize="18" Grid.Row="18" Click="RegistrationBtn_Click" />
         </Grid>
 
         <!-- Правая панель -->

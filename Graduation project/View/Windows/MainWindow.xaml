@@ -51,13 +51,13 @@
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="2" Foreground="Black" Grid.Row="2" Content="CodeCraft" FontSize="30" FontWeight="Bold"/>
-            <Button Grid.Column="4" Grid.Row="2" Foreground="Black" Content="Главная" FontSize="24"/>
+            <Button Grid.Column="4" Grid.Row="2" Foreground="Black" x:Name="HomeBtn" Content="Главная" FontSize="24"/>
             <Rectangle Grid.Column="4" Grid.Row="3" Fill="Black" Width="94"/>
-            <Button Grid.Column="6" Grid.Row="2" Foreground="Black" Content="Теория" FontSize="24"/>
-            <Button Grid.Column="8" Grid.Row="2" Foreground="Black" Content="Курсы" FontSize="24"/>
-            <Button Grid.Column="10" Grid.Row="2" Foreground="Black" Content="Песочница" FontSize="24"/>
-            <Button Grid.Column="12" Grid.Row="2" Foreground="Black" Content="Прогресс" FontSize="24"/>
-            <Button Grid.Column="14" Grid.Row="2" Foreground="Black" Content="Настройки" FontSize="24"/>
+            <Button Grid.Column="6" Grid.Row="2" Foreground="Black" x:Name="TheoryBtn" Content="Теория" FontSize="24" Click="TheoryBtn_Click"/>
+            <Button Grid.Column="8" Grid.Row="2" Foreground="Black" x:Name="CourceBtn" Content="Курсы" FontSize="24" Click="CourceBtn_Click"/>
+            <Button Grid.Column="10" Grid.Row="2" Foreground="Black" x:Name="SandboxBtn" Content="Песочница" FontSize="24" Click="SandboxBtn_Click"/>
+            <Button Grid.Column="12" Grid.Row="2" Foreground="Black" x:Name="ProgressBtn" Content="Прогресс" FontSize="24" Click="ProgressBtn_Click"/>
+            <Button Grid.Column="14" Grid.Row="2" Foreground="Black" x:Name="SettingsBtn" Content="Настройки" FontSize="24" Click="SettingsBtn_Click"/>
             <Rectangle Grid.Column="4" Grid.ColumnSpan="11" Grid.Row="5" Fill="Black" Width="1200"/>
             <Button FontSize="24"  Foreground="Black" Grid.Column="17" Grid.Row="2" Content="Matvei4ik"/>
             <Button FontSize="24"  Foreground="Black" Grid.Column="18" Grid.Row="2" Content="RU"/>
@@ -79,11 +79,11 @@
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="616"/>
-                <ColumnDefinition Width="274"/>
+                <ColumnDefinition Width="614"/>
+                <ColumnDefinition Width="276"/>
                 <ColumnDefinition Width="141"/>
-                <ColumnDefinition Width="274"/>
-                <ColumnDefinition Width="615"/>
+                <ColumnDefinition Width="276"/>
+                <ColumnDefinition Width="613"/>
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.ColumnSpan="5" Grid.Row="2" HorizontalAlignment="Center" FontSize="50">

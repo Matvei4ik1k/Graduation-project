@@ -92,11 +92,7 @@
 
         <Grid Grid.Column="1" Grid.Row="1">
             <Grid.RowDefinitions >
-                <RowDefinition Height="10"/>
                 <RowDefinition Height="0"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="20"/>
@@ -104,42 +100,58 @@
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="20"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="20"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="20"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
-            <Border Grid.RowSpan="40" Width="652" Height="auto" Background="#34495E" CornerRadius="50" />
+            <Border Grid.RowSpan="40" Width="652"  Background="#34495E" CornerRadius="50" />
 
             <TextBlock Grid.Row="2" Text="Регистрация"  FontSize="40" HorizontalAlignment="Center" FontWeight="Bold" />
 
-            <TextBlock Grid.Row="4" TextAlignment="Center" Text="Придумайте логин" FontSize="24"   />
+            <TextBlock Grid.Row="4"  TextAlignment="Center" Text="Почта" FontSize="24"   />
 
             <Border Grid.Row="6" Height="50" Width="440" CornerRadius="15" Background="#46627F" >
-                <TextBox VerticalContentAlignment="Center" Height="40" Width="415" FontSize="18" Text="Введите ваш логин" />
+                <TextBox VerticalContentAlignment="Center" x:Name="EmailTb" Height="40" Width="415" FontSize="18" Text="Введите вашу почту" />
+            </Border>
+            
+            <TextBlock Grid.Row="8" TextAlignment="Center" Text="Придумайте логин" FontSize="24"   />
+
+            <Border Grid.Row="10" Height="50" Width="440" CornerRadius="15" Background="#46627F" >
+                <TextBox VerticalContentAlignment="Center" x:Name="LoginTb" Height="40" Width="415" FontSize="18" Text="Введите ваш логин" />
             </Border>
 
-            <TextBlock Grid.Row="8" TextAlignment="Center" Text="Придумайте пароль" FontSize="24"   />
+            
 
-            <Border Grid.Row="10" Height="50" Width="440" CornerRadius="15" Background="#46627F">
-                <PasswordBox Height="40" Width="415" VerticalContentAlignment="Center" FontSize="14" Password="qwerqwer" />
-            </Border>
-
-            <TextBlock Grid.Row="12" TextAlignment="Center" Text="Повторите пароль" FontSize="24"   />
+            <TextBlock Grid.Row="12" TextAlignment="Center" Text="Придумайте пароль" FontSize="24"   />
 
             <Border Grid.Row="14" Height="50" Width="440" CornerRadius="15" Background="#46627F">
-                <PasswordBox VerticalContentAlignment="Center" Height="40" Width="415"   FontSize="14" Password="qwerqwer" />
+                <PasswordBox Height="40" Width="415" x:Name="ThinkPasswordPb" VerticalContentAlignment="Center" FontSize="14" Password="qwerqwer" />
             </Border>
 
-            <Button Grid.Row="16" Height="60" Width="400" Content="Войти" FontSize="24" Background="#3498DB"   Name="LoginBtn" Click="LoginBtn_Click"/>
+            <TextBlock Grid.Row="16" TextAlignment="Center" Text="Повторите пароль" FontSize="24"   />
 
-            <Button Content="Авторизоваться" FontSize="18" Grid.Row="18"     Name="AuthorizationBtn" Click="AuthorizationBtn_Click"
-              />
+            <Border Grid.Row="18" Height="50" Width="440" CornerRadius="15" Background="#46627F">
+                <PasswordBox VerticalContentAlignment="Center" x:Name="RepeatPasswordPb" Height="40" Width="415"   FontSize="14" Password="qwerqwer" />
+            </Border>
+
+            <Border Grid.Row="20" Background="#3498DB" Width="400" CornerRadius="10" >
+                <Button  Height="60"  Content="Зарегистрироваться" FontSize="24"    x:Name="RegistrationBtn" Click="RegistrationBtn_Click"/>
+            </Border>
+            <Button Grid.Row="22" Content="Авторизоваться" Width="150" FontSize="18" x:Name="AuthorizationBtn" Click="AuthorizationBtn_Click"/>
         </Grid>
 
         <!-- Правая панель -->
