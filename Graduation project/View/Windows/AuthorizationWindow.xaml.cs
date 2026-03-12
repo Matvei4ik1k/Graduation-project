@@ -1,4 +1,5 @@
-﻿using Graduation_project.Models;
+﻿using Graduation_project.AppData;
+using Graduation_project.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
@@ -43,7 +44,7 @@ namespace Graduation_project.View.Windows
                     var user = context.Users.FirstOrDefault(u => u.Name == login);
                     if (user != null)
                     {
-                        if(user.Password == PasswordPb.Password)
+                        if(PasswordHelper.VerifyPassword(password, user.Password))
                         {
                             MessageBox.Show("Успешеый вход", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                             MainWindow mainWindow = new MainWindow();

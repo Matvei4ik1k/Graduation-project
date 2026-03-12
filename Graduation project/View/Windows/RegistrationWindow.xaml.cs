@@ -1,4 +1,5 @@
-﻿using Graduation_project.Models;
+﻿using Graduation_project.AppData;
+using Graduation_project.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace Graduation_project.View.Windows
        
         private void RegistrationBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(LoginTb.Text) || string.IsNullOrWhiteSpace(ThinkPasswordPb.Password) || string.IsNullOrWhiteSpace(RepeatPasswordPb.Password))
+            if (string.IsNullOrWhiteSpace(LoginTb.Text) || string.IsNullOrWhiteSpace(EmailTb.Text) || string.IsNullOrWhiteSpace(ThinkPasswordPb.Password) || string.IsNullOrWhiteSpace(RepeatPasswordPb.Password))
             {
                 MessageBox.Show("Заполните все поля", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -44,11 +45,12 @@ namespace Graduation_project.View.Windows
                     {
                         using (var context = new GraduationProjectContext())
                         {
+                            string passwordHash = PasswordHelper.HashPassword(ThinkPasswordPb.Password);
                             var newUser = new User()
                             {
                                 Email = EmailTb.Text,
                                 Name = LoginTb.Text,
-                                Password = RepeatPasswordPb.Password
+                                Password = passwordHash
                             };
                             context.Add(newUser);
                             context.SaveChanges();

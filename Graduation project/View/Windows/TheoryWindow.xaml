@@ -5,130 +5,92 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Graduation_project.View.Windows"
         mc:Ignorable="d"
-            MinHeight="900" MinWidth="1600" Width="1920" Height="1350" Title="TheoryWindow" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize">
-    <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
-        <Grid Background="#EFEFEF">
+            MinHeight="900" MinWidth="1600" Width="1920" Height="1080" Title="TheoryWindow" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize">
+    <Grid Background="#EFEFEF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="180"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <!--Header-->
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="90"/>
-                <RowDefinition Height="180"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="4"/>
+                <RowDefinition Height="12"/>
+                <RowDefinition Height="1"/>
+
             </Grid.RowDefinitions>
 
-            <!--Header-->
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0"/>
-                    <RowDefinition Height="35"/>
-                    <RowDefinition Height="35"/>
-                    <RowDefinition Height="4"/>
-                    <RowDefinition Height="12"/>
-                    <RowDefinition Height="1"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="0.1*"/>
+            </Grid.ColumnDefinitions>
 
-                </Grid.RowDefinitions>
+            <Button Grid.Column="2" Foreground="Black" Grid.Row="2" Content="CodeCraft" FontSize="30" FontWeight="Bold"/>
+            <Button Grid.Column="4" Grid.Row="2" Foreground="Black" x:Name="HomeBtn" Content="Главная" FontSize="24" Click="HomeBtn_Click"/>
+            <Button Grid.Column="6" Grid.Row="2" Foreground="Black" x:Name="TheoryBtn" Content="Теория" FontSize="24"/>
+            <Rectangle Grid.Column="6" Grid.Row="3" Fill="Black" Width="89"/>
+            <Button Grid.Column="8" Grid.Row="2" Foreground="Black" x:Name="CourceBtn" Content="Курсы" FontSize="24" Click="CourceBtn_Click"/>
+            <Button Grid.Column="10" Grid.Row="2" Foreground="Black" x:Name="SandboxBtn" Content="Песочница" FontSize="24" Click="SandboxBtn_Click"/>
+            <Button Grid.Column="12" Grid.Row="2" Foreground="Black" x:Name="ProgressBtn" Content="Прогресс" FontSize="24" Click="ProgressBtn_Click"/>
+            <Button Grid.Column="14" Grid.Row="2" Foreground="Black" x:Name="SettingsBtn" Content="Настройки" FontSize="24" Click="SettingsBtn_Click"/>
+            <Rectangle Grid.Column="4" Grid.ColumnSpan="11" Grid.Row="5" Fill="Black" Width="1200"/>
+            <Button FontSize="24"  Foreground="Black" Grid.Column="17" Grid.Row="2" Content="Matvei4ik"/>
+            <Button FontSize="24"  Foreground="Black" Grid.Column="18" Grid.Row="2" Content="RU"/>
+        </Grid>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0"/>
-                    <ColumnDefinition Width="30"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="0.2*"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="90"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="90"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="90"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="90"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="90"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="0.1*"/>
-                    <ColumnDefinition Width="0.1*"/>
-                    <ColumnDefinition Width="0.1*"/>
-                </Grid.ColumnDefinitions>
+        <Grid Grid.Row="1">
 
-                <Button Grid.Column="2" Foreground="Black" Grid.Row="2" Content="CodeCraft" FontSize="30" FontWeight="Bold"/>
-                <Button Grid.Column="4" Grid.Row="2" Foreground="Black" x:Name="HomeBtn" Content="Главная" FontSize="24" Click="HomeBtn_Click"/>
-                <Button Grid.Column="6" Grid.Row="2" Foreground="Black" x:Name="TheoryBtn" Content="Теория" FontSize="24"/>
-                <Rectangle Grid.Column="6" Grid.Row="3" Fill="Black" Width="89"/>
-                <Button Grid.Column="8" Grid.Row="2" Foreground="Black" x:Name="CourceBtn" Content="Курсы" FontSize="24" Click="CourceBtn_Click"/>
-                <Button Grid.Column="10" Grid.Row="2" Foreground="Black" x:Name="SandboxBtn" Content="Песочница" FontSize="24" Click="SandboxBtn_Click"/>
-                <Button Grid.Column="12" Grid.Row="2" Foreground="Black" x:Name="ProgressBtn" Content="Прогресс" FontSize="24" Click="ProgressBtn_Click"/>
-                <Button Grid.Column="14" Grid.Row="2" Foreground="Black" x:Name="SettingsBtn" Content="Настройки" FontSize="24" Click="SettingsBtn_Click"/>
-                <Rectangle Grid.Column="4" Grid.ColumnSpan="11" Grid.Row="5" Fill="Black" Width="1200"/>
-                <Button FontSize="24"  Foreground="Black" Grid.Column="17" Grid.Row="2" Content="Matvei4ik"/>
-                <Button FontSize="24"  Foreground="Black" Grid.Column="18" Grid.Row="2" Content="RU"/>
-            </Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
 
-            <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0"/>
+                <ColumnDefinition Width="1448"/>
+                <ColumnDefinition Width="0"/>
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="320"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0"/>
-                    <RowDefinition Height="55"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="10"/>
-                    <RowDefinition Height="45"/>
-                    <RowDefinition Height="30"/>
-                </Grid.RowDefinitions>
+            <Border Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" Padding="34 8 10 9" CornerRadius="10" Background="White">
+                <TextBox x:Name="SearchTb" TextChanged="SearchTb_TextChanged" Text="Поиск книг" VerticalContentAlignment="Center" BorderThickness="0" FontSize="16" Foreground="Black" Width="276" Height="24"  Opacity="0.25"/>
+            </Border>
+            <Image Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="22" Height="25" Source="/Icons/icons8-лупа-90.png" />
+            <TextBlock Grid.Row="2" Grid.ColumnSpan="6" HorizontalAlignment="Center" Text="Каталог книг" FontSize="34" FontWeight="Bold" Foreground="Black"/>
+            <TextBlock Grid.Row="4" Grid.ColumnSpan="6" HorizontalAlignment="Center" Foreground="#6B7280" Text="Подборка книг для изучения веб-технологий: от основ HTML до современных CSS-приёмов." FontSize="14" FontWeight="Regular"/>
+        </Grid>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0"/>
-                    <ColumnDefinition Width="1448"/>
-                    <ColumnDefinition Width="0"/>
-                    <ColumnDefinition Width="12"/>
-                    <ColumnDefinition Width="320"/>
-                    <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
-
-                <Border Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" Padding="34 8 10 9" CornerRadius="10" Background="White">
-                    <TextBox x:Name="SearchTb" TextChanged="SearchTb_TextChanged" Text="Поиск книг" VerticalContentAlignment="Center" BorderThickness="0" FontSize="16" Foreground="Black" Width="276" Height="24"  Opacity="0.25"/>
-                </Border>
-                <Image Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="22" Height="25" Source="/Icons/icons8-лупа-90.png" />
-                <TextBlock Grid.Row="2" Grid.ColumnSpan="6" HorizontalAlignment="Center" Text="Каталог книг" FontSize="34" FontWeight="Bold" Foreground="Black"/>
-                <TextBlock Grid.Row="4" Grid.ColumnSpan="6" HorizontalAlignment="Center" Foreground="#6B7280" Text="Подборка книг для изучения веб-технологий: от основ HTML до современных CSS-приёмов." FontSize="14" FontWeight="Regular"/>
-            </Grid>
-
-            <Grid Grid.Row="2">
-                <!--<Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0"/>
-                    <ColumnDefinition Width="130"/>
-                    <ColumnDefinition Width="390"/>
-                    <ColumnDefinition Width="30"/>
-                </Grid.ColumnDefinitions>
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0"/>
-                    <RowDefinition Height="0"/>
-                    <RowDefinition Height="250"/>
-                    <RowDefinition Height="0"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="10"/>
-                    <RowDefinition Height="85"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="0"/>
-                    <RowDefinition Height="60"/>
-
-
-                </Grid.RowDefinitions>-->
-
-                <!--<Border Grid.Row="2" Grid.Column="2" Grid.RowSpan="8" Background="White" CornerRadius="10" />
-                <TextBlock Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" Text="HTML5 Основы" Foreground="Black" FontWeight="Bold" FontSize="26"/>
-                <TextBlock Grid.Row="6" Grid.Column="2" TextAlignment="Justify" Width="310" TextWrapping="Wrap" HorizontalAlignment="Center" Text="Познакомьтесь с основными тегами: заголовки, абзацы, ссылки и изображения. Узнайте, как создать правильную структуру документа с помощью семантических элементов." Foreground="#4B5563" FontWeight="Regular" FontSize="14"/>
-                <Border Grid.Row="8" Grid.Column="2" CornerRadius="8" Background="Black" Width="260" HorizontalAlignment="Center">
-                    <Button FontSize="14" Width="260" Content="Читать"/>
-                </Border>
-
-                <Image Grid.Row="2" Stretch="UniformToFill" VerticalAlignment="Center" Grid.Column="2" Source="/Image/Book.png" >
-                    <Image.Clip>
-                        <RectangleGeometry Rect="0,0,390,400"/>
-                    </Image.Clip>
-                </Image>-->
-
-                <ItemsControl Grid.Row="2" x:Name="BookList" d:ItemsSource="{d:SampleData ItemCount=4}">
-
+        <Grid Grid.Row="2">
+            <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                <ItemsControl x:Name="BookList" d:ItemsSource="{d:SampleData ItemCount=20}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel HorizontalAlignment="Center"/>
@@ -139,39 +101,36 @@
                         <DataTemplate>
                             <Border Background="White" CornerRadius="10" Width="390" Height="450" Margin="15">
                                 <Grid>
+
                                     <Grid.RowDefinitions>
+
+                                        <RowDefinition Height="0"/>
+                                        <RowDefinition Height="0"/>
                                         <RowDefinition Height="250"/>
-                                        <RowDefinition Height="40"/>
-                                        <RowDefinition Height="90"/>
-                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="20"/>
+                                        <RowDefinition Height="35"/>
+                                        <RowDefinition Height="0"/>
+                                        <RowDefinition Height="85"/>
+                                        <RowDefinition Height="30"/>
                                     </Grid.RowDefinitions>
-                                    
-                                    <!--source="{Binding Image}"-->
-                                    <Image Grid.Row="0" Stretch="UniformToFill" Source="/Image/Book.png">
+
+                                    <Image Grid.Row="2"  Grid.ColumnSpan="12" Stretch="UniformToFill" VerticalAlignment="Center" Source="/Image/Book.png" >
                                         <Image.Clip>
                                             <RectangleGeometry Rect="0,0,390,400"/>
                                         </Image.Clip>
                                     </Image>
-
-                                    
-                                    <TextBlock Grid.Row="1" Text="{Binding Name}" HorizontalAlignment="Center" Foreground="Black" FontSize="26" FontWeight="Bold"/>
-
-                                    
-                                    <TextBlock Grid.Row="2" TextWrapping="Wrap" Width="310" Text="{Binding Description}" HorizontalAlignment="Center"   Foreground="#4B5563" FontSize="14"/>
-
-                                    <Border Grid.Row="3" CornerRadius="8" Background="Black" Width="260" Height="30" HorizontalAlignment="Center" >
+                                    <TextBlock Grid.Row="4" Text="{Binding Name}" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="Black" FontSize="22" FontWeight="Bold"/>
+                                    <TextBlock Grid.Row="6" TextWrapping="Wrap" Width="310" TextAlignment="Justify" Text="{Binding Description}" HorizontalAlignment="Center"   Foreground="#4B5563" FontSize="14"/>
+                                    <Border Grid.Row="8" CornerRadius="8" Background="Black" Width="260" Height="30" HorizontalAlignment="Center" >
                                         <Button Content="Читать" Height="30" Width="260" FontSize="14"/>
                                     </Border>
+
                                 </Grid>
                             </Border>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
-                    
                 </ItemsControl>
-              
-
-
-            </Grid>
+            </ScrollViewer>
         </Grid>
-    </ScrollViewer>
+    </Grid>
 </Window>
