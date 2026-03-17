@@ -40,17 +40,23 @@ namespace Graduation_project.View.Windows
 
         private void SandboxBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            SandboxWindow sandboxWindow = new SandboxWindow();
+            sandboxWindow.Show();
+            this.Close();
         }
 
         private void ProgressBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            ProgressWindow progressWindow = new ProgressWindow();
+            progressWindow.Show();
+            this.Close();
         }
 
         private void SettingsBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            SettingsWindow settingsWindow = new SettingsWindow();
+            settingsWindow.Show();
+            this.Close();
         }
     }
 }

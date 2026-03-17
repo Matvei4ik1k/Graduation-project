@@ -65,7 +65,6 @@ namespace Graduation_project.View.Windows
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка при входе {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
-
             }
         }
 
@@ -75,7 +74,5 @@ namespace Graduation_project.View.Windows
             registration.Show();
             this.Close();
         }
-
-
     }
 }
