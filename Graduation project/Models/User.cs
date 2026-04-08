@@ -16,10 +16,4 @@ public partial class User
     public DateOnly? RegistrationDate { get; set; }
 
     public int? RoleId { get; set; }
-
-    public virtual Role? Role { get; set; }
-
-    public virtual ICollection<UserContent> UserContents { get; set; } = new List<UserContent>();
-
-    public virtual ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Graduation_project.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,13 @@ namespace Graduation_project.View.Windows
     /// </summary>
     public partial class CourseWindow : Window
     {
+      GraduationProjectContext context = new GraduationProjectContext();
+        List<Cource> cources;
         public CourseWindow()
         {
             InitializeComponent();
+            cources = context.Cources.ToList();
+            CourceList.ItemsSource = cources;
         }
 
         private void HomeBtn_Click(object sender, RoutedEventArgs e)

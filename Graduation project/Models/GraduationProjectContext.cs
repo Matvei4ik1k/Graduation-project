@@ -21,6 +21,8 @@ public partial class GraduationProjectContext : DbContext
 
     public virtual DbSet<Content> Contents { get; set; }
 
+    public virtual DbSet<Cource> Cources { get; set; }
+
     public virtual DbSet<Role> Roles { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
@@ -73,6 +75,15 @@ public partial class GraduationProjectContext : DbContext
                 .HasConstraintName("FK__Content__Categor__68487DD7");
         });
 
+        modelBuilder.Entity<Cource>(entity =>
+        {
+            entity.HasKey(e => e.CourceId).HasName("PK__Cources__34A22BD302D084CD");
+
+            entity.Property(e => e.CourceId).HasColumnName("Cource_Id");
+            entity.Property(e => e.DifficultyLevel).HasMaxLength(15);
+            entity.Property(e => e.Name).HasMaxLength(255);
+        });
+
         modelBuilder.Entity<Role>(entity =>
         {
             entity.HasKey(e => e.RoleId).HasName("PK__Role__D80BB093984A7DFB");
@@ -93,13 +104,9 @@ public partial class GraduationProjectContext : DbContext
             entity.Property(e => e.UserId).HasColumnName("User_id");
             entity.Property(e => e.Email).HasMaxLength(255);
             entity.Property(e => e.Name).HasMaxLength(200);
-            entity.Property(e => e.Password).HasMaxLength(50);
+            entity.Property(e => e.Password).HasMaxLength(60);
             entity.Property(e => e.RegistrationDate).HasColumnName("Registration_date");
             entity.Property(e => e.RoleId).HasColumnName("Role_id");
-
-            entity.HasOne(d => d.Role).WithMany(p => p.Users)
-                .HasForeignKey(d => d.RoleId)
-                .HasConstraintName("FK__User__Role_id__6754599E");
         });
 
         modelBuilder.Entity<UserContent>(entity =>
@@ -124,11 +131,6 @@ public partial class GraduationProjectContext : DbContext
                 .HasForeignKey(d => d.ContentId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__User_cont__Conte__6C190EBB");
-
-            entity.HasOne(d => d.User).WithMany(p => p.UserContents)
-                .HasForeignKey(d => d.UserId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__User_cont__User___6B24EA82");
         });
 
         modelBuilder.Entity<UserRole>(entity =>
@@ -145,11 +147,6 @@ public partial class GraduationProjectContext : DbContext
                 .HasForeignKey(d => d.RoleId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__User_role__Role___6A30C649");
-
-            entity.HasOne(d => d.User).WithMany(p => p.UserRoles)
-                .HasForeignKey(d => d.UserId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__User_role__User___693CA210");
         });
 
         OnModelCreatingPartial(modelBuilder);

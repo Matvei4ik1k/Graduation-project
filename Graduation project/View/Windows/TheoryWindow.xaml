@@ -101,9 +101,8 @@
                         <DataTemplate>
                             <Border Background="White" CornerRadius="10" Width="390" Height="450" Margin="15">
                                 <Grid>
-
+                                    
                                     <Grid.RowDefinitions>
-
                                         <RowDefinition Height="0"/>
                                         <RowDefinition Height="0"/>
                                         <RowDefinition Height="250"/>
@@ -114,7 +113,7 @@
                                         <RowDefinition Height="30"/>
                                     </Grid.RowDefinitions>
 
-                                    <Image Grid.Row="2"  Grid.ColumnSpan="12" Stretch="UniformToFill" VerticalAlignment="Center" Source="/Image/Book.png" >
+                                    <Image Grid.Row="2" Stretch="UniformToFill" VerticalAlignment="Center" Source="/Image/Book.png" >
                                         <Image.Clip>
                                             <RectangleGeometry Rect="0,0,390,400"/>
                                         </Image.Clip>
