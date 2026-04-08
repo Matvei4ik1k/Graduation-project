@@ -21,12 +21,12 @@ namespace Graduation_project.View.Windows
     public partial class CourseWindow : Window
     {
       GraduationProjectContext context = new GraduationProjectContext();
-        List<Cource> cources;
+        List<Cource> allCource;
         public CourseWindow()
         {
             InitializeComponent();
-            cources = context.Cources.ToList();
-            CourceList.ItemsSource = cources;
+            allCource = context.Cources.ToList();
+            CourceList.ItemsSource = allCource;
         }
 
         private void HomeBtn_Click(object sender, RoutedEventArgs e)
@@ -62,6 +62,16 @@ namespace Graduation_project.View.Windows
             SettingsWindow settingsWindow = new SettingsWindow();
             settingsWindow.Show();
             this.Close();
+        }
+
+        private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (allCource == null)
+                return;
+
+            string text = SearchTb.Text.ToLower();
+            var filtered = allCource.Where(u=>!string.IsNullOrWhiteSpace(u.Name)&& u.Name.ToLower().Contains(text)).ToList();
+            CourceList.ItemsSource = filtered;
         }
     }
 }
