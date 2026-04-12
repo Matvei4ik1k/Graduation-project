@@ -21,6 +21,7 @@
     <None Remove="Fonts\Inter-Regular.ttf" />
     <None Remove="Icons\icons8-листы-96.png" />
     <None Remove="Icons\icons8-лупа-90.png" />
+    <None Remove="Icons\icons8-стрелка-90.png" />
     <None Remove="Icons\icons8-часы-96.png" />
     <None Remove="Image\Book.png" />
   </ItemGroup>
@@ -38,6 +39,9 @@
     <Resource Include="Icons\icons8-лупа-90.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Icons\icons8-стрелка-90.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\icons8-часы-96.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -48,7 +52,7 @@
 
   <ItemGroup>
     <PackageReference Include="AvalonEdit" Version="6.3.1.120" />
-    <PackageReference Include="Azure.Identity" Version="1.20.0" />
+    <PackageReference Include="Azure.Identity" Version="1.21.0" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.1.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />

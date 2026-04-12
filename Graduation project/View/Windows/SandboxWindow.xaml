@@ -69,7 +69,7 @@
                 </Grid.ColumnDefinitions>
 
             <avalonEdit:TextEditor x:Name="CodeEditor" FontSize="14" ShowLineNumbers="True" SyntaxHighlighting="HTML"/>
-            <wv2:WebView2  x:Name="Preview" Grid.Column="1" Margin="10"/>
+            <wv2:WebView2 x:Name="Preview" Grid.Column="1" Margin="10"/>
             </Grid>
         </Grid>
 </Window>

@@ -154,7 +154,7 @@
                                     </StackPanel>
                                     
                                     <Border Grid.Row="5" CornerRadius="8" Margin="0 0 0 20" Background="#FFA83E" Width="260" HorizontalAlignment="Center">
-                                        <Button FontSize="14" Width="260" Content="Читать"/>
+                                        <Button FontSize="14" x:Name="CourceBtn" Click="CourceBtn_Click" CommandParameter="{Binding}" Width="260" Content="Читать"/>
                                     </Border>
 
                                 </Grid>

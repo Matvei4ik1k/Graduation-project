@@ -22,6 +22,4 @@ public partial class UserContent
     public int UserId { get; set; }
 
     public int ContentId { get; set; }
-
-    public virtual Content Content { get; set; } = null!;
 }

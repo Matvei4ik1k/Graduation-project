@@ -21,7 +21,9 @@ public partial class GraduationProjectContext : DbContext
 
     public virtual DbSet<Content> Contents { get; set; }
 
-    public virtual DbSet<Cource> Cources { get; set; }
+    public virtual DbSet<Course> Courses { get; set; }
+
+    public virtual DbSet<Lesson> Lessons { get; set; }
 
     public virtual DbSet<Role> Roles { get; set; }
 
@@ -32,19 +34,23 @@ public partial class GraduationProjectContext : DbContext
     public virtual DbSet<UserRole> UserRoles { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Graduation_project;Trusted_Connection=True;");
+        => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Graduation_project;Trusted_Connection=True;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.UseCollation("Cyrillic_General_CI_AS");
+
         modelBuilder.Entity<Book>(entity =>
         {
-            entity.Property(e => e.Id).ValueGeneratedNever();
-            entity.Property(e => e.Name).HasMaxLength(50);
+            entity.HasKey(e => e.BooksId).HasName("PK__Books__959FD33CE25724A4");
+
+            entity.Property(e => e.BooksId).HasColumnName("Books_Id");
+            entity.Property(e => e.Name).HasMaxLength(255);
         });
 
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.CategoryId).HasName("PK__Category__6DB2813680B69392");
+            entity.HasKey(e => e.CategoryId).HasName("PK__Category__6DB281364F8F1F52");
 
             entity.ToTable("Category");
 
@@ -55,7 +61,7 @@ public partial class GraduationProjectContext : DbContext
 
         modelBuilder.Entity<Content>(entity =>
         {
-            entity.HasKey(e => e.ContentId).HasName("PK__Content__4F5DE4DDCF3306F6");
+            entity.HasKey(e => e.ContentId).HasName("PK__Content__4F5DE4DDFD65B325");
 
             entity.ToTable("Content");
 
@@ -69,24 +75,33 @@ public partial class GraduationProjectContext : DbContext
             entity.Property(e => e.Tag).HasMaxLength(200);
             entity.Property(e => e.Title).HasMaxLength(200);
             entity.Property(e => e.Type).HasMaxLength(50);
-
-            entity.HasOne(d => d.Category).WithMany(p => p.Contents)
-                .HasForeignKey(d => d.CategoryId)
-                .HasConstraintName("FK__Content__Categor__68487DD7");
         });
 
-        modelBuilder.Entity<Cource>(entity =>
+        modelBuilder.Entity<Course>(entity =>
         {
-            entity.HasKey(e => e.CourceId).HasName("PK__Cources__34A22BD302D084CD");
+            entity.HasKey(e => e.CourseId).HasName("PK__Courses__37E005DB92C47995");
 
-            entity.Property(e => e.CourceId).HasColumnName("Cource_Id");
+            entity.Property(e => e.CourseId).HasColumnName("Course_Id");
             entity.Property(e => e.DifficultyLevel).HasMaxLength(15);
             entity.Property(e => e.Name).HasMaxLength(255);
         });
 
+        modelBuilder.Entity<Lesson>(entity =>
+        {
+            entity.HasKey(e => e.LessonsId).HasName("PK__Lessons__5D768A2D7CF64644");
+
+            entity.Property(e => e.LessonsId).HasColumnName("Lessons_Id");
+            entity.Property(e => e.CourseId).HasColumnName("Course_Id");
+            entity.Property(e => e.LessonTopic).HasMaxLength(50);
+
+            entity.HasOne(d => d.Course).WithMany(p => p.Lessons)
+                .HasForeignKey(d => d.CourseId)
+                .HasConstraintName("FK__Lessons__Course___6D0D32F4");
+        });
+
         modelBuilder.Entity<Role>(entity =>
         {
-            entity.HasKey(e => e.RoleId).HasName("PK__Role__D80BB093984A7DFB");
+            entity.HasKey(e => e.RoleId).HasName("PK__Role__D80BB09351A15379");
 
             entity.ToTable("Role");
 
@@ -97,7 +112,7 @@ public partial class GraduationProjectContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PK__User__206A9DF8721C6C26");
+            entity.HasKey(e => e.UserId).HasName("PK__User__206A9DF859AACAB8");
 
             entity.ToTable("User");
 
@@ -111,7 +126,7 @@ public partial class GraduationProjectContext : DbContext
 
         modelBuilder.Entity<UserContent>(entity =>
         {
-            entity.HasKey(e => e.UserContentId).HasName("PK__User_con__D698C354CFE424B7");
+            entity.HasKey(e => e.UserContentId).HasName("PK__User_con__D698C354CAD9F4BF");
 
             entity.ToTable("User_content");
 
@@ -126,27 +141,17 @@ public partial class GraduationProjectContext : DbContext
                 .HasColumnName("Progress_percent");
             entity.Property(e => e.StartDate).HasColumnName("Start_date");
             entity.Property(e => e.UserId).HasColumnName("User_id");
-
-            entity.HasOne(d => d.Content).WithMany(p => p.UserContents)
-                .HasForeignKey(d => d.ContentId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__User_cont__Conte__6C190EBB");
         });
 
         modelBuilder.Entity<UserRole>(entity =>
         {
-            entity.HasKey(e => e.UserRoleId).HasName("PK__User_rol__41F7C3A52F28D8D0");
+            entity.HasKey(e => e.UserRoleId).HasName("PK__User_rol__41F7C3A58899A1A5");
 
             entity.ToTable("User_role");
 
             entity.Property(e => e.UserRoleId).HasColumnName("User_role_id");
             entity.Property(e => e.RoleId).HasColumnName("Role_id");
             entity.Property(e => e.UserId).HasColumnName("User_id");
-
-            entity.HasOne(d => d.Role).WithMany(p => p.UserRoles)
-                .HasForeignKey(d => d.RoleId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__User_role__Role___6A30C649");
         });
 
         OnModelCreatingPartial(modelBuilder);

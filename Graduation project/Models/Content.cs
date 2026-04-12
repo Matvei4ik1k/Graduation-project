@@ -24,8 +24,4 @@ public partial class Content
     public string? Author { get; set; }
 
     public int? CategoryId { get; set; }
-
-    public virtual Category? Category { get; set; }
-
-    public virtual ICollection<UserContent> UserContents { get; set; } = new List<UserContent>();
 }

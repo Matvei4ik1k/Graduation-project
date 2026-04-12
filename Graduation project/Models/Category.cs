@@ -10,6 +10,4 @@ public partial class Category
     public string Name { get; set; } = null!;
 
     public string? Description { get; set; }
-
-    public virtual ICollection<Content> Contents { get; set; } = new List<Content>();
 }

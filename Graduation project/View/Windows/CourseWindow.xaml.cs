@@ -20,13 +20,13 @@ namespace Graduation_project.View.Windows
     /// </summary>
     public partial class CourseWindow : Window
     {
-      GraduationProjectContext context = new GraduationProjectContext();
-        List<Cource> allCource;
+        GraduationProjectContext context = new GraduationProjectContext();
+        List<Course> allCourse;
         public CourseWindow()
         {
             InitializeComponent();
-            allCource = context.Cources.ToList();
-            CourceList.ItemsSource = allCource;
+            allCourse = context.Courses.ToList();
+            CourceList.ItemsSource = allCourse;
         }
 
         private void HomeBtn_Click(object sender, RoutedEventArgs e)
@@ -66,12 +66,24 @@ namespace Graduation_project.View.Windows
 
         private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (allCource == null)
+            if (allCourse == null)
                 return;
 
             string text = SearchTb.Text.ToLower();
-            var filtered = allCource.Where(u=>!string.IsNullOrWhiteSpace(u.Name)&& u.Name.ToLower().Contains(text)).ToList();
+            var filtered = allCourse.Where(u => !string.IsNullOrWhiteSpace(u.Name) && u.Name.ToLower().Contains(text)).ToList();
             CourceList.ItemsSource = filtered;
+        }
+
+        private void CourceBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.CommandParameter is Course course)
+            {
+                CourseAssignment courseAssignment = new CourseAssignment();
+                courseAssignment.DataContext = course;
+                courseAssignment.Show();
+                this.Close();
+            }
+
         }
     }
 }

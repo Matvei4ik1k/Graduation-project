@@ -7,7 +7,7 @@
         mc:Ignorable="d" 
         MinHeight="900" MinWidth="1600" Width="1920" Height="1080" Title="Registration" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize">
 
-    <!--<Grid Background="#F5F5F5">
+    <Grid Background="#F5F5F5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="515"/>
             <ColumnDefinition/>
@@ -20,7 +20,7 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        --><!-- Левая панель --><!--
+         <!--Левая панель--> 
         <Border Grid.RowSpan="3">
             <Grid>
                 <Grid.RowDefinitions>
@@ -87,7 +87,7 @@
         </Border>
 
 
-        --><!-- Центральная панель --><!--
+         <!--Центральная панель--> 
         <Border Grid.Column="1" Grid.RowSpan="20" Background="#2C3E50"/>
 
         <Grid Grid.Column="1" Grid.Row="1">
@@ -154,7 +154,7 @@
             <Button Grid.Row="22" Content="Авторизоваться" Width="150" FontSize="18" x:Name="AuthorizationBtn" Click="AuthorizationBtn_Click"/>
         </Grid>
 
-        --><!-- Правая панель --><!--
+         <!--Правая панель--> 
         <Border Grid.Column="2" Grid.Row="0" Grid.RowSpan="3">
             <Grid>
                 <Grid.RowDefinitions>
@@ -221,5 +221,5 @@
                 </Grid>
             </Grid>
         </Border>
-    </Grid>-->
+    </Grid>
 </Window>

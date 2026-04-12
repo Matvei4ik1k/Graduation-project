@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace Graduation_project.View.Windows
 {
-    /// <summary>
-    /// Логика взаимодействия для TheoryWindow.xaml
-    /// </summary>
+
     public partial class TheoryWindow : Window
     {
         GraduationProjectContext graduationProjectContext = new GraduationProjectContext();

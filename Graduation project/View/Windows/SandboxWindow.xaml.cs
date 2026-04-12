@@ -17,23 +17,10 @@ namespace Graduation_project.View.Windows
             #region Начальный шаблон страницы
             CodeEditor.Text = @"<!DOCTYPE html>
 <html>
-<head>
-    <title>Demo Page</title>
-    <style>
-        body { font-family: Arial; }
-        header, footer { background: #f0f0f0; padding: 10px; }
-    </style>
-</head>
 <body>
-    <header>
         <h1>Header</h1>
-    </header>
-    <main>
         <p>Content goes here...</p>
-    </main>
-    <footer>
         Footer
-    </footer>
 </body>
 </html>";
             #endregion
@@ -54,11 +41,36 @@ namespace Graduation_project.View.Windows
             }
         }
 
-        private void HomeBtn_Click(object sender, RoutedEventArgs e) { }
-        private void TheoryBtn_Click(object sender, RoutedEventArgs e) { }
-        private void CourceBtn_Click(object sender, RoutedEventArgs e) { }
-        private void ProgressBtn_Click(object sender, RoutedEventArgs e) { }
-        private void SettingsBtn_Click(object sender, RoutedEventArgs e) { }
+        private void HomeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+        private void TheoryBtn_Click(object sender, RoutedEventArgs e)
+        {
+            TheoryWindow theoryWindow = new TheoryWindow();
+            theoryWindow.Show();
+            this.Close();
+        }
+        private void CourceBtn_Click(object sender, RoutedEventArgs e)
+        {
+            CourseWindow courseWindow = new CourseWindow();
+            courseWindow.Show();
+            this.Close();
+        }
+        private void ProgressBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ProgressWindow progressWindow = new ProgressWindow();
+            progressWindow.Show();
+            this.Close();
+        }
+        private void SettingsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsWindow settingsWindow = new SettingsWindow();
+            settingsWindow.Show();
+            this.Close();
+        }
 
     }
 

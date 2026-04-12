@@ -5,7 +5,7 @@ namespace Graduation_project.Models;
 
 public partial class Book
 {
-    public int Id { get; set; }
+    public int BooksId { get; set; }
 
     public string? Name { get; set; }
 
