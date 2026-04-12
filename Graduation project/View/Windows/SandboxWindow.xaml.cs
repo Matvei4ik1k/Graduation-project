@@ -17,11 +17,10 @@ namespace Graduation_project.View.Windows
             #region Начальный шаблон страницы
             CodeEditor.Text = @"<!DOCTYPE html>
 <html>
-<body>
+    <body>
         <h1>Header</h1>
         <p>Content goes here...</p>
-        Footer
-</body>
+    </body>
 </html>";
             #endregion
             CodeEditor.TextChanged += CodeEditor_TextChanged;
@@ -43,31 +42,31 @@ namespace Graduation_project.View.Windows
 
         private void HomeBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new ();
             mainWindow.Show();
             this.Close();
         }
         private void TheoryBtn_Click(object sender, RoutedEventArgs e)
         {
-            TheoryWindow theoryWindow = new TheoryWindow();
+            TheoryWindow theoryWindow = new ();
             theoryWindow.Show();
             this.Close();
         }
         private void CourceBtn_Click(object sender, RoutedEventArgs e)
         {
-            CourseWindow courseWindow = new CourseWindow();
+            CourseWindow courseWindow = new ();
             courseWindow.Show();
             this.Close();
         }
         private void ProgressBtn_Click(object sender, RoutedEventArgs e)
         {
-            ProgressWindow progressWindow = new ProgressWindow();
+            ProgressWindow progressWindow = new ();
             progressWindow.Show();
             this.Close();
         }
         private void SettingsBtn_Click(object sender, RoutedEventArgs e)
         {
-            SettingsWindow settingsWindow = new SettingsWindow();
+            SettingsWindow settingsWindow = new ();
             settingsWindow.Show();
             this.Close();
         }

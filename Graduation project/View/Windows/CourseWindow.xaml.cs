@@ -76,14 +76,12 @@ namespace Graduation_project.View.Windows
 
         private void CourceBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button button && button.CommandParameter is Course course)
+            if(sender is Button button && button.CommandParameter is Course course)
             {
-                CourseAssignment courseAssignment = new CourseAssignment();
-                courseAssignment.DataContext = course;
+                CourseAssignment courseAssignment = new CourseAssignment(course);
                 courseAssignment.Show();
                 this.Close();
             }
-
         }
     }
 }
