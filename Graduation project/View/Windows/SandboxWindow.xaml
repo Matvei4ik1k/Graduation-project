@@ -50,7 +50,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Grid.Column="2" Foreground="Black" Grid.Row="2" Content="CodeCraft" FontSize="30" FontWeight="Bold"/>
-                <Button Grid.Column="4" Grid.Row="2" Foreground="Black" x:Name="HomeBtn" Content="Главная" FontSize="24"/>
+                <Button Grid.Column="4" Grid.Row="2" Foreground="Black" x:Name="HomeBtn" Content="Главная" FontSize="24" Click="HomeBtn_Click"/>
                 <Button Grid.Column="6" Grid.Row="2" Foreground="Black" x:Name="TheoryBtn" Content="Теория" FontSize="24" Click="TheoryBtn_Click"/>
                 <Button Grid.Column="8" Grid.Row="2" Foreground="Black" x:Name="CourceBtn" Content="Курсы" FontSize="24" Click="CourceBtn_Click"/>
                 <Button Grid.Column="10" Grid.Row="2" Foreground="Black" x:Name="SandboxBtn" Content="Песочница" FontSize="24"/>

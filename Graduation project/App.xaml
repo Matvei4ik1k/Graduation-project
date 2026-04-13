@@ -2,13 +2,11 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Graduation_project"
-             StartupUri="\View\Windows\CourseWindow.xaml">
+             StartupUri="\View\Windows\RegistrationWindow.xaml">
     <Application.Resources>
-
 
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="\Fonts\#Inter"/>
-            <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Button}, Path=Foreground, FallbackValue=White}"/>
         </Style>
 
         <Style TargetType="Button">
@@ -33,5 +31,6 @@
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="Background" Value="Transparent"/>
         </Style>
+
     </Application.Resources>
 </Application>

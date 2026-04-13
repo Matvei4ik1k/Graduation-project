@@ -120,29 +120,29 @@
 
             <Border Grid.RowSpan="40" Width="652"  Background="#34495E" CornerRadius="50" />
 
-            <TextBlock Grid.Row="2" Text="Регистрация"  FontSize="40" HorizontalAlignment="Center" FontWeight="Bold" />
+            <TextBlock Grid.Row="2" Foreground="White" Text="Регистрация"  FontSize="40" HorizontalAlignment="Center" FontWeight="Bold" />
 
-            <TextBlock Grid.Row="4"  TextAlignment="Center" Text="Почта" FontSize="24"   />
+            <TextBlock Grid.Row="4" Foreground="White" TextAlignment="Center" Text="Почта" FontSize="24"   />
 
             <Border Grid.Row="6" Height="50" Width="440" CornerRadius="15" Background="#46627F" >
-                <TextBox VerticalContentAlignment="Center" x:Name="EmailTb" Height="40" Width="415" FontSize="18" Text="Введите вашу почту" />
+                <TextBox  VerticalContentAlignment="Center" x:Name="EmailTb" Height="40" Width="415" FontSize="18" Text="Введите вашу почту" />
             </Border>
-            
-            <TextBlock Grid.Row="8" TextAlignment="Center" Text="Придумайте логин" FontSize="24"   />
+
+            <TextBlock Grid.Row="8" TextAlignment="Center" Foreground="White" Text="Придумайте логин" FontSize="24"   />
 
             <Border Grid.Row="10" Height="50" Width="440" CornerRadius="15" Background="#46627F" >
                 <TextBox VerticalContentAlignment="Center" x:Name="LoginTb" Height="40" Width="415" FontSize="18" Text="Введите ваш логин" />
             </Border>
 
-            
 
-            <TextBlock Grid.Row="12" TextAlignment="Center" Text="Придумайте пароль" FontSize="24"   />
+
+            <TextBlock Grid.Row="12" TextAlignment="Center" Foreground="White" Text="Придумайте пароль" FontSize="24"   />
 
             <Border Grid.Row="14" Height="50" Width="440" CornerRadius="15" Background="#46627F">
                 <PasswordBox Height="40" Width="415" x:Name="ThinkPasswordPb" VerticalContentAlignment="Center" FontSize="14" Password="qwerqwer" />
             </Border>
 
-            <TextBlock Grid.Row="16" TextAlignment="Center" Text="Повторите пароль" FontSize="24"   />
+            <TextBlock Grid.Row="16" TextAlignment="Center" Foreground="White" Text="Повторите пароль" FontSize="24"   />
 
             <Border Grid.Row="18" Height="50" Width="440" CornerRadius="15" Background="#46627F">
                 <PasswordBox VerticalContentAlignment="Center" x:Name="RepeatPasswordPb" Height="40" Width="415"   FontSize="14" Password="qwerqwer" />
