@@ -1,0 +1,51 @@
+﻿<Window x:Class="Graduation_project.View.Windows.TheoryRead"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Graduation_project.View.Windows"
+        mc:Ignorable="d"
+        Title="TheoryRead" MinHeight="900" MinWidth="1600" Width="1920" Height="1080" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize">
+
+    <Grid Background="#EFEFEF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Border Background="White" Width="1920" Height="75" VerticalAlignment="Top">
+            <Grid >
+                <Button x:Name="BackToBooks" Click="BackToBooks_Click" HorizontalAlignment="Left" Margin="55 0 0 0" Height="25" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Icons/icons8-стрелка-90.png"  Height="15" />
+                        <TextBlock Text="Назад к книгам" FontWeight="Bold" Foreground="Black"  Margin="5 0 0 0" FontSize="14"/>
+                    </StackPanel>
+                </Button>
+                <TextBlock x:Name="BookNameTbl" Width="Auto" Height="Auto" Foreground="Black" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+
+                <Border Grid.Column="0" Background="White" Margin="10" Height="785" CornerRadius="10">
+                    <ListBox x:Name="ChaptersLB" Height="780" DisplayMemberPath="ChapterTitle" Margin="10" Background="White" BorderBrush="Transparent" Foreground="Black" FontSize="14" SelectionChanged="ChaptersLB_SelectionChanged"/>
+                </Border>
+
+                <Border Grid.Column="0" Background="White" VerticalAlignment="Top" Margin="10" Height="140" CornerRadius="10">
+                    <TextBlock  Padding="20"  FontSize="16" FontWeight="Bold" Text="Ваш прогресс"/>
+                </Border>
+            </StackPanel>
+
+            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Visible">
+                <Border  Grid.Column="1" Background="White" CornerRadius="10" Margin="10">
+                    <TextBlock Margin="10" Padding="20" TextWrapping="Wrap" Foreground="Black" FontSize="14" x:Name="ChapterContentTbl" Background="White"/>
+                </Border>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace Graduation_project.Models;
+namespace Graduation_project.NewModels;
 
 public partial class GraduationProjectContext : DbContext
 {
@@ -19,6 +19,8 @@ public partial class GraduationProjectContext : DbContext
 
     public virtual DbSet<Category> Categories { get; set; }
 
+    public virtual DbSet<Chapter> Chapters { get; set; }
+
     public virtual DbSet<Content> Contents { get; set; }
 
     public virtual DbSet<Course> Courses { get; set; }
@@ -34,7 +36,7 @@ public partial class GraduationProjectContext : DbContext
     public virtual DbSet<UserRole> UserRoles { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Graduation_project;Trusted_Connection=True;TrustServerCertificate=True");
+        => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Graduation_project;Trusted_Connection=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -57,6 +59,19 @@ public partial class GraduationProjectContext : DbContext
             entity.Property(e => e.CategoryId).HasColumnName("Category_id");
             entity.Property(e => e.Description).HasMaxLength(500);
             entity.Property(e => e.Name).HasMaxLength(100);
+        });
+
+        modelBuilder.Entity<Chapter>(entity =>
+        {
+            entity.HasKey(e => e.ChaptersId).HasName("PK__Chapters__9C789690B5AC3D95");
+
+            entity.Property(e => e.ChaptersId).HasColumnName("Chapters_Id");
+            entity.Property(e => e.BooksId).HasColumnName("Books_Id");
+            entity.Property(e => e.ChapterTitle).HasMaxLength(80);
+
+            entity.HasOne(d => d.Books).WithMany(p => p.Chapters)
+                .HasForeignKey(d => d.BooksId)
+                .HasConstraintName("FK__Chapters__Books___02FC7413");
         });
 
         modelBuilder.Entity<Content>(entity =>

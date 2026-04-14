@@ -1,4 +1,4 @@
-﻿using Graduation_project.Models;
+﻿using Graduation_project.NewModels;
 using System.Windows;
 
 namespace Graduation_project.View.Windows
@@ -9,6 +9,7 @@ namespace Graduation_project.View.Windows
         List<Lesson> lessons = new();
         int currentLessonIndex = 0;
         Course currentCurse;
+
         public CourseAssignment(Course course)
         {
             InitializeComponent();

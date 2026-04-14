@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Graduation_project.Models;
+namespace Graduation_project.NewModels;
 
 public partial class User
 {

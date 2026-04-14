@@ -121,7 +121,7 @@
                                     <TextBlock Grid.Row="4" Text="{Binding Name}" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="Black" FontSize="22" FontWeight="Bold"/>
                                     <TextBlock Grid.Row="6" TextWrapping="Wrap" Width="310" TextAlignment="Justify" Text="{Binding Description}" HorizontalAlignment="Center"   Foreground="#4B5563" FontSize="14"/>
                                     <Border Grid.Row="8" CornerRadius="8" Background="Black" Width="260" Height="30" HorizontalAlignment="Center" >
-                                        <Button Content="Читать" Height="30" Width="260" FontSize="14"/>
+                                        <Button CommandParameter="{Binding}" x:Name="ReadBook" Click="ReadBook_Click" Content="Читать" Height="30" Width="260" FontSize="14"/>
                                     </Border>
 
                                 </Grid>
