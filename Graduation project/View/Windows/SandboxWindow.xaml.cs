@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-
 namespace Graduation_project.View.Windows
 {
     public partial class SandboxWindow : Window

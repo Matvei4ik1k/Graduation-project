@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Graduation_project.NewModels;
+namespace Graduation_project.Models;
 
 public partial class Chapter
 {

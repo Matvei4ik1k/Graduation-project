@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Graduation_project.Models;
+using System.Windows;
 
 namespace Graduation_project.View.Windows
 {
@@ -7,9 +8,13 @@ namespace Graduation_project.View.Windows
     /// </summary>
     public partial class ProgressWindow : Window
     {
+        GraduationProjectContext context = new GraduationProjectContext();
+        List<Book> _books = new();
         public ProgressWindow()
         {
             InitializeComponent();
+            _books = context.Books.ToList();
+            BookList.ItemsSource = _books;
         }
 
         private void HomeBtn_Click(object sender, RoutedEventArgs e)
@@ -45,6 +50,11 @@ namespace Graduation_project.View.Windows
             SettingsWindow settingsWindow = new SettingsWindow();
             settingsWindow.Show();
             this.Close();
+        }
+
+        private void ReadBook_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

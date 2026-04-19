@@ -1,5 +1,5 @@
 ﻿using Graduation_project.AppData;
-using Graduation_project.NewModels;
+using Graduation_project.Models;
 using System.Windows;
 
 namespace Graduation_project.View.Windows

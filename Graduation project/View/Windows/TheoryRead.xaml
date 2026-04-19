@@ -21,6 +21,7 @@
                         <TextBlock Text="Назад к книгам" FontWeight="Bold" Foreground="Black"  Margin="5 0 0 0" FontSize="14"/>
                     </StackPanel>
                 </Button>
+                        <Button  BorderBrush="Black" HorizontalAlignment="Right" Margin="20" Height="30" Width="200" x:Name="NextChaptersBtn" Foreground="Black" FontSize="16" Content="Следующий раздел" Click="NextChaptersBtn_Click"/>
                 <TextBlock x:Name="BookNameTbl" Width="Auto" Height="Auto" Foreground="Black" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
             </Grid>
         </Border>
@@ -37,15 +38,26 @@
                 </Border>
 
                 <Border Grid.Column="0" Background="White" VerticalAlignment="Top" Margin="10" Height="140" CornerRadius="10">
-                    <TextBlock  Padding="20"  FontSize="16" FontWeight="Bold" Text="Ваш прогресс"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="0.5*"/>
+                        </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" HorizontalAlignment="Center" Padding="20"  FontSize="16" FontWeight="Bold" Text="Ваш прогресс"/>
+                        <TextBlock x:Name="ProgressTbl" HorizontalAlignment="Center" Grid.Row="1" FontSize="20" />
+                        <ProgressBar HorizontalAlignment="Center" Grid.Row="2" Background="white" BorderBrush="Black" x:Name="ProgressBarPb" Width="300" Height="30"/>
+                    </Grid>
                 </Border>
             </StackPanel>
 
             <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Visible">
                 <Border  Grid.Column="1" Background="White" CornerRadius="10" Margin="10">
-                    <TextBlock Margin="10" Padding="20" TextWrapping="Wrap" Foreground="Black" FontSize="14" x:Name="ChapterContentTbl" Background="White"/>
+                    
+                        <TextBlock Margin="10" Padding="20" TextWrapping="Wrap" Foreground="Black" FontSize="14" x:Name="ChapterContentTbl" Background="White"/>
                 </Border>
             </ScrollViewer>
+
         </Grid>
     </Grid>
 </Window>

@@ -1,4 +1,4 @@
-﻿using Graduation_project.NewModels;
+﻿using Graduation_project.Models;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -9,6 +9,7 @@ namespace Graduation_project.View.Windows
     {
         GraduationProjectContext graduationProjectContext = new GraduationProjectContext();
         List<Book> allBooks;
+
         public TheoryWindow()
         {
             InitializeComponent();
@@ -19,14 +20,8 @@ namespace Graduation_project.View.Windows
         {
             if (allBooks == null)
                 return;
-
             string text = SearchTb.Text.ToLower();
-
-            var filtered = allBooks
-                .Where(b => !string.IsNullOrEmpty(b.Name) &&
-                            b.Name.ToLower().Contains(text))
-                .ToList();
-
+            var filtered = allBooks.Where(b => !string.IsNullOrEmpty(b.Name) && b.Name.ToLower().Contains(text)).ToList();
             BookList.ItemsSource = filtered;
         }
 
