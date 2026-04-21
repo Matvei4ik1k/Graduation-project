@@ -5,17 +5,35 @@ namespace Graduation_project.View.Windows
 {
     public partial class CourseAssignment : Window
     {
-        GraduationProjectContext _context = new GraduationProjectContext();
+        GraduationProjectContext context = new GraduationProjectContext();
+
         List<Lesson> lessons = new();
-        int currentLessonIndex = 0;
-        Course currentCurse;
+        Course currentCourse;
+
+        int indexLesson;
+        int percent;
+        bool isLoaded = false;
 
         public CourseAssignment(Course course)
         {
             InitializeComponent();
-            currentCurse = course;
-            lessons = _context.Lessons.Where(l => l.CourseId == course.CourseId).ToList();
-            #region Начальный шаблон страницы
+
+            // Загружаем курс из БД (ВАЖНО)
+            currentCourse = context.Courses.First(c => c.CourseId == course.CourseId);
+
+            // Загружаем уроки
+            lessons = context.Lessons.Where(l => l.CourseId == course.CourseId).ToList();
+
+            // Восстанавливаем прогресс
+            indexLesson = currentCourse.IndexLesson ?? 0;
+
+            if (indexLesson >= lessons.Count)
+                indexLesson = lessons.Count - 1;
+
+            // Название курса
+            CourseNameTbl.Text = currentCourse.Name;
+
+            // Стартовый HTML
             CodeEditor.Text = @"<!DOCTYPE html>
 <html>
     <body>
@@ -23,12 +41,14 @@ namespace Graduation_project.View.Windows
         <p>Content goes here...</p>
     </body>
 </html>";
-            #endregion
+
             ShowLesson();
             InitializeAsync();
-            CourseNameTbl.Text = course.Name;
+
+            isLoaded = true;
         }
 
+        // Показ урока
         private void ShowLesson()
         {
             if (lessons == null || lessons.Count == 0)
@@ -36,42 +56,70 @@ namespace Graduation_project.View.Windows
                 MessageBox.Show("Нет уроков");
                 return;
             }
-            var lesson = lessons[currentLessonIndex];
-            var lessonViewModel = new
-            {
-                LessonTopicText = lesson.LessonTopic,
-                TaskText = lesson.TaskDescription,
-                InstructionText = lesson.Instructions
-            };
-            DataContext = lessonViewModel;
+
+            DataContext = lessons[indexLesson];
+
+            UpdateProgressUI(); // обновляем UI
         }
+
+        // Обновление UI прогресса
+        private void UpdateProgressUI()
+        {
+            if (lessons == null || lessons.Count == 0)
+                return;
+
+            percent = ((indexLesson + 1) * 100) / lessons.Count;
+
+            ProgressTbl.Text = $"{percent}%";
+            ProgressBarPb.Value = percent;
+        }
+
+        // Сохранение прогресса в БД
+        private void SaveProgress()
+        {
+            if (!isLoaded || lessons.Count == 0)
+                return;
+
+            percent = ((indexLesson + 1) * 100) / lessons.Count;
+
+            currentCourse.IndexLesson = indexLesson;
+            currentCourse.Progress = percent;
+
+            context.SaveChanges();
+        }
+
+        // Следующий урок
         private void NextLessonBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (currentLessonIndex < lessons.Count - 1)
+            if (indexLesson < lessons.Count - 1)
             {
-                currentLessonIndex++;
-                ShowLesson();
+                indexLesson++;
+                ShowLesson();     // обновляет UI
+                SaveProgress();   // сохраняет в БД
             }
             else
             {
                 MessageBox.Show("Курс закончен");
-                CourseWindow courseWindow = new();
+                CourseWindow courseWindow = new CourseWindow();
                 courseWindow.Show();
                 this.Close();
             }
         }
+
+        // WebView
         private async void InitializeAsync()
         {
             await Preview.EnsureCoreWebView2Async(null);
             Preview.NavigateToString(CodeEditor.Text);
         }
-        private void CodeEditor_TextChanged(object? sender, EventArgs e)
+
+        private void CodeEditor_TextChanged(object sender, EventArgs e)
         {
             if (Preview.CoreWebView2 != null)
-            {
                 Preview.NavigateToString(CodeEditor.Text);
-            }
         }
+
+        // Назад
         private void BackToCourses_Click(object sender, RoutedEventArgs e)
         {
             CourseWindow courseWindow = new();

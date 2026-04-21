@@ -18,6 +18,8 @@ public partial class Course
     public int? Modules { get; set; }
 
     public int? Progress { get; set; }
+    public int? IndexLesson { get; set; }
+
 
     public virtual ICollection<Lesson> Lessons { get; set; } = new List<Lesson>();
 }

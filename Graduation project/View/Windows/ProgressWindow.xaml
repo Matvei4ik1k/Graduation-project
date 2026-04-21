@@ -125,7 +125,7 @@
                                         </StackPanel>
 
                                         <Border Grid.Row="6" CornerRadius="8" Background="Black" Width="260" Height="30" HorizontalAlignment="Center" >
-                                            <Button CommandParameter="{Binding}" Content="Читать" Height="30" Width="260" FontSize="14"/>
+                                            <Button CommandParameter="{Binding}" x:Name="ReadBook" Click="ReadBook_Click" Content="Читать" Height="30" Width="260" FontSize="14"/>
                                         </Border>
                                     </Grid>
                                 </Border>

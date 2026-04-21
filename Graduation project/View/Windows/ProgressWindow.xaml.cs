@@ -1,5 +1,6 @@
 ﻿using Graduation_project.Models;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Graduation_project.View.Windows
 {
@@ -54,7 +55,14 @@ namespace Graduation_project.View.Windows
 
         private void ReadBook_Click(object sender, RoutedEventArgs e)
         {
-
+            if (sender is Button button && button.CommandParameter is Book selectBook)
+            {
+                TheoryRead theoryRead = new TheoryRead(selectBook);
+                theoryRead.Show();
+                this.Close();
+            }
+            else MessageBox.Show("Ошибка", "Ошибка");
         }
+
     }
 }
