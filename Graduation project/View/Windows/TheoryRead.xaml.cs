@@ -1,4 +1,6 @@
-﻿using Graduation_project.Models;
+﻿using Graduation_project.AppData;
+using Graduation_project.Model;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -9,7 +11,8 @@ namespace Graduation_project.View.Windows
         GraduationProjectContext context = new GraduationProjectContext();
 
         List<Chapter> _chapter;
-        Book? currentBook;
+        Book currentBook;
+        UserBook userBook;
 
         int indexChapter;
         int percent;
@@ -19,73 +22,93 @@ namespace Graduation_project.View.Windows
         {
             InitializeComponent();
 
-            // заголовок книги
-            BookNameTbl.Text = book.Name;
+            // книга
+            currentBook = context.Books.First(b => b.Id == book.Id);
 
-            // загрузка глав книги
-            _chapter = context.Chapters.Where(g => g.BooksId == book.BooksId).ToList();
+            // главы книги
+            _chapter = context.Chapters
+                .Where(c => c.BookId == book.Id)
+                .ToList();
 
             ChaptersLB.ItemsSource = _chapter;
 
-            // получаем книгу из БД (для сохранения прогресса)
-            currentBook = context.Books
-                .FirstOrDefault(b => b.BooksId == book.BooksId);
+            // получаем прогресс текущего пользователя
+            userBook = context.UserBooks
+                .FirstOrDefault(x =>
+                    x.BookId == book.Id &&
+                    x.UserId == UserSession.UserId);
 
-            // восстановление сохранённого прогресса
-            percent = (int)(currentBook?.Progress ?? 0);
-            indexChapter = book.IndexChapter ?? 0;
+            // если нет записи — стартуем с 0
+            indexChapter = userBook?.IndexChapter ?? 0;
 
-            // защита от выхода за границы
             if (_chapter.Count > 0 && indexChapter >= _chapter.Count)
-                indexChapter = _chapter.Count - 1;
+                indexChapter = 0;
 
-            // установка текущей главы
+            BookNameTbl.Text = book.Name;
+
             if (_chapter.Count > 0)
                 ChaptersLB.SelectedItem = _chapter[indexChapter];
 
             isLoaded = true;
+
+            UpdateUI();
         }
 
-        // возврат к списку книг
-        private void BackToBooks_Click(object sender, RoutedEventArgs e)
-        {
-            new TheoryWindow().Show();
-            Close();
-        }
-
-        // смена выбранной главы
+        // смена главы
         private void ChaptersLB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // защита от срабатывания при инициализации
-            if (!isLoaded || _chapter.Count == 0) return;
+            if (!isLoaded || _chapter.Count == 0)
+                return;
 
-            // отображение содержимого главы
-            if (ChaptersLB.SelectedItem is Chapter selectedChapter)
+            if (ChaptersLB.SelectedItem is Chapter selected)
             {
-                ChapterContentTbl.Text = selectedChapter.ChapterContent;
+                ChapterContentTbl.Text = selected.ChapterContent;
             }
 
-            // обновляем индекс текущей главы
             indexChapter = ChaptersLB.SelectedIndex;
 
-            // пересчёт прогресса в процентах
-            percent = ((indexChapter + 1) * 100) / _chapter.Count;
-
-            // обновление UI
-            ProgressTbl.Text = $"{percent}%";
-            ProgressBarPb.Value = percent;
-
-            // сохранение прогресса в БД
-            if (currentBook != null)
-            {
-                currentBook.Progress = percent;
-                currentBook.IndexChapter = indexChapter;
-
-                context.SaveChanges();
-            }
+            UpdateUI();
+            SaveProgress();
         }
 
-        // переход к следующей главе
+        // UI обновление
+        private void UpdateUI()
+        {
+            if (_chapter.Count == 0) return;
+
+            percent = ((_chapter.Count == 0) ? 0 : ((indexChapter + 1) * 100 / _chapter.Count));
+
+            ProgressTbl.Text = $"{percent}%";
+            ProgressBarPb.Value = percent;
+        }
+
+        // сохранение прогресса
+        private void SaveProgress()
+        {
+            if (_chapter.Count == 0) return;
+
+            if (userBook != null)
+            {
+                userBook.IndexChapter = indexChapter;
+                userBook.Percent = percent;
+            }
+            else
+            {
+                userBook = new UserBook
+                {
+                    UserId = UserSession.UserId,
+                    BookId = currentBook.Id,
+                    IndexChapter = indexChapter,
+                    Percent = percent
+                };
+
+                context.UserBooks.Add(userBook);
+            }
+
+            context.SaveChanges();
+        }
+
+        // следующая глава
         private void NextChaptersBtn_Click(object sender, RoutedEventArgs e)
         {
             if (indexChapter < _chapter.Count - 1)
@@ -95,9 +118,17 @@ namespace Graduation_project.View.Windows
             }
             else
             {
+                MessageBox.Show("Книга пройдена");
                 new TheoryWindow().Show();
                 Close();
             }
+        }
+
+        // назад
+        private void BackToBooks_Click(object sender, RoutedEventArgs e)
+        {
+            new TheoryWindow().Show();
+            Close();
         }
     }
 }

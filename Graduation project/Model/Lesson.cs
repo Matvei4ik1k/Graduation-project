@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Graduation_project.Models;
+namespace Graduation_project.Model;
 
 public partial class Lesson
 {
-    public int LessonsId { get; set; }
+    public int Id { get; set; }
 
     public int? CourseId { get; set; }
 

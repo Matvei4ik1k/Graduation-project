@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Graduation_project.Models;
+namespace Graduation_project.Model;
 
 public partial class Course
 {
-    public int CourseId { get; set; }
+    public int Id { get; set; }
 
     public string? DifficultyLevel { get; set; }
 
@@ -17,9 +17,7 @@ public partial class Course
 
     public int? Modules { get; set; }
 
-    public int? Progress { get; set; }
-    public int? IndexLesson { get; set; }
-
-
     public virtual ICollection<Lesson> Lessons { get; set; } = new List<Lesson>();
+
+    public virtual ICollection<UserCourse> UserCourses { get; set; } = new List<UserCourse>();
 }

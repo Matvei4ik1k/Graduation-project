@@ -64,10 +64,6 @@ namespace Graduation_project.View.Windows
             this.Close();
         }
 
-        private void HomeBtn_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 
 }

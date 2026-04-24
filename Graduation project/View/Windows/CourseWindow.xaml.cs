@@ -1,4 +1,4 @@
-﻿using Graduation_project.Models;
+﻿using Graduation_project.Model;
 using System.Windows;
 using System.Windows.Controls;
 

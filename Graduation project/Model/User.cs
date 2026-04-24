@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Graduation_project.Models;
+namespace Graduation_project.Model;
 
 public partial class User
 {
-    public int UserId { get; set; }
+    public int Id { get; set; }
 
     public string Name { get; set; } = null!;
 
@@ -15,5 +15,7 @@ public partial class User
 
     public DateOnly? RegistrationDate { get; set; }
 
-    public int? RoleId { get; set; }
+    public virtual ICollection<UserBook> UserBooks { get; set; } = new List<UserBook>();
+
+    public virtual ICollection<UserCourse> UserCourses { get; set; } = new List<UserCourse>();
 }

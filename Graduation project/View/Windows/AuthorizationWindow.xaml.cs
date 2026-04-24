@@ -1,5 +1,5 @@
 ﻿using Graduation_project.AppData;
-using Graduation_project.Models;
+using Graduation_project.Model;
 using System.Windows;
 
 namespace Graduation_project.View.Windows
@@ -19,7 +19,7 @@ namespace Graduation_project.View.Windows
             string login = LoginTb.Text;
             string password = PasswordPb.Password;
 
-            if (string.IsNullOrWhiteSpace(LoginTb.Text) || string.IsNullOrWhiteSpace(PasswordPb.Password))
+            if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Заполните все поля", "Предупреждение", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
@@ -33,6 +33,9 @@ namespace Graduation_project.View.Windows
                     {
                         if (PasswordHelper.VerifyPassword(password, user.Password))
                         {
+                            UserSession.UserId = user.Id;
+                            UserSession.UserName = user.Name;
+
                             MessageBox.Show("Успешеый вход", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                             MainWindow mainWindow = new MainWindow();
                             mainWindow.Show();

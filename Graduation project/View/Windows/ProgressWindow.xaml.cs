@@ -1,6 +1,6 @@
-﻿using Graduation_project.Models;
+﻿using Graduation_project.AppData;
+using Graduation_project.Model;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace Graduation_project.View.Windows
 {
@@ -8,47 +8,55 @@ namespace Graduation_project.View.Windows
     {
         GraduationProjectContext context = new GraduationProjectContext();
 
-        List<Book> _books = new();
-        List<Course> _courses = new();
+        List<BookProgressDto> _books = new();
+        List<UserCourse> _userCourses = new();
 
         public ProgressWindow()
         {
             InitializeComponent();
 
-            // загрузка данных
-            _books = context.Books.ToList();
-            _courses = context.Courses.ToList();
+            int userId = UserSession.UserId;
+
+            var userBooks = context.UserBooks
+                .Where(x => x.UserId == userId)
+                .ToList();
+
+            _books = userBooks.Select(ub => new BookProgressDto
+            {
+                Book = context.Books.First(b => b.Id == ub.BookId),
+                Percent = ub.Percent ?? 0
+            }).ToList();
+
+            _userCourses = context.UserCourses
+                .Where(x => x.UserId == userId)
+                .ToList();
 
             BookList.ItemsSource = _books;
 
-            // расчёт и отображение прогресса
             UpdateProgress();
         }
 
-        // расчет общего прогресса
         private void UpdateProgress()
         {
-            int totalItems = _books.Count + _courses.Count;
+            int totalItems = context.Books.Count() + context.Courses.Count();
 
             if (totalItems == 0)
             {
-                ProgressTbl.Text = "Нет данных для отображения прогресса";
+                ProgressTbl.Text = "Нет данных";
                 ProgressPb.Value = 0;
                 return;
             }
 
-            int sumProgress =
-                _books.Sum(b => b.Progress ?? 0) +
-                _courses.Sum(c => c.Progress ?? 0);
+            int sum =
+                _books.Sum(x => x.Percent) +
+                _userCourses.Sum(x => x.Percent ?? 0);
 
-            int totalPercent = sumProgress / totalItems;
+            int totalPercent = sum / totalItems;
 
-            // обновление UI
-            ProgressTbl.Text = $"Вы продвинулись на {totalPercent}% в изучении веб-разработки";
+            ProgressTbl.Text = $"Прогресс: {totalPercent}%";
             ProgressPb.Value = totalPercent;
         }
 
-        // навигация
         private void HomeBtn_Click(object sender, RoutedEventArgs e)
         {
             new MainWindow().Show();
@@ -79,17 +87,12 @@ namespace Graduation_project.View.Windows
             Close();
         }
 
-        // открыть книгу
         private void ReadBook_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button button && button.CommandParameter is Book selectBook)
+            if (sender is FrameworkElement el && el.DataContext is BookProgressDto dto)
             {
-                new TheoryRead(selectBook).Show();
+                new TheoryRead(dto.Book).Show();
                 Close();
-            }
-            else
-            {
-                MessageBox.Show("Ошибка");
             }
         }
     }

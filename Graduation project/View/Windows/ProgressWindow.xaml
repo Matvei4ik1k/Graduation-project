@@ -117,11 +117,11 @@
                                             <RowDefinition Height="30"/>
                                         </Grid.RowDefinitions>
 
-                                        <TextBlock Grid.Row="2" Text="{Binding Name}" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="Black" FontSize="22" FontWeight="Bold"/>
-                                        <TextBlock Grid.Row="4" TextWrapping="Wrap" Width="310" TextAlignment="Justify" Text="{Binding Description}" HorizontalAlignment="Center"   Foreground="#4B5563" FontSize="14"/>
+                                        <TextBlock Grid.Row="2" Text="{Binding Book.Name}" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="Black" FontSize="22" FontWeight="Bold"/>
+                                        <TextBlock Grid.Row="4" TextWrapping="Wrap" Width="310" TextAlignment="Justify" Text="{Binding Book.Description}" HorizontalAlignment="Center"   Foreground="#4B5563" FontSize="14"/>
                                         <StackPanel Grid.Row="5" Orientation="Vertical">
-                                            <TextBlock HorizontalAlignment="Center" FontSize="16" Text="{Binding Progress, StringFormat={}{0}%}"/>
-                                        <ProgressBar Value="{Binding Progress}" Height="30" Margin="10" HorizontalAlignment="Center" Width="310"/>
+                                            <TextBlock HorizontalAlignment="Center" FontSize="16" Text="{Binding Percent, StringFormat={}{0}%}"/>
+                                            <ProgressBar Value="{Binding Percent}" Height="30" Margin="10" HorizontalAlignment="Center" Width="310"/>
                                         </StackPanel>
 
                                         <Border Grid.Row="6" CornerRadius="8" Background="Black" Width="260" Height="30" HorizontalAlignment="Center" >

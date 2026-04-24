@@ -1,4 +1,6 @@
-﻿using Graduation_project.Models;
+﻿using Graduation_project.AppData;
+using Graduation_project.Model;
+using System.Linq;
 using System.Windows;
 
 namespace Graduation_project.View.Windows
@@ -10,30 +12,54 @@ namespace Graduation_project.View.Windows
         List<Lesson> lessons = new();
         Course currentCourse;
 
-        int indexLesson;
-        int percent;
+        UserCourse userCourse;
+
+        int? indexLesson;
+        int? percent;
         bool isLoaded = false;
 
         public CourseAssignment(Course course)
         {
             InitializeComponent();
 
-            // Загружаем курс из БД (ВАЖНО)
-            currentCourse = context.Courses.First(c => c.CourseId == course.CourseId);
+            // загружаем курс
+            currentCourse = context.Courses.First(c => c.Id == course.Id);
 
-            // Загружаем уроки
-            lessons = context.Lessons.Where(l => l.CourseId == course.CourseId).ToList();
+            // загружаем уроки
+            lessons = context.Lessons
+                .Where(l => l.CourseId == course.Id)
+                .ToList();
 
-            // Восстанавливаем прогресс
-            indexLesson = currentCourse.IndexLesson ?? 0;
+            // получаем прогресс пользователя
+            userCourse = context.UserCourses
+                .FirstOrDefault(x =>
+                    x.CourseId == course.Id &&
+                    x.UserId == UserSession.UserId);
+
+            // если нет записи прогресса — создаём
+            if (userCourse == null)
+            {
+                userCourse = new UserCourse
+                {
+                    UserId = UserSession.UserId,
+                    CourseId = course.Id,
+                    IndexLesson = 0,
+                    Percent = 0
+                };
+
+                context.UserCourses.Add(userCourse);
+                context.SaveChanges();
+            }
+
+            // восстанавливаем прогресс
+            indexLesson = userCourse.IndexLesson;
 
             if (indexLesson >= lessons.Count)
                 indexLesson = lessons.Count - 1;
 
-            // Название курса
+            // UI
             CourseNameTbl.Text = currentCourse.Name;
 
-            // Стартовый HTML
             CodeEditor.Text = @"<!DOCTYPE html>
 <html>
     <body>
@@ -57,12 +83,12 @@ namespace Graduation_project.View.Windows
                 return;
             }
 
-            DataContext = lessons[indexLesson];
+            DataContext = lessons[indexLesson ?? 0];
 
-            UpdateProgressUI(); // обновляем UI
+            UpdateProgressUI();
         }
 
-        // Обновление UI прогресса
+        // UI прогресса
         private void UpdateProgressUI()
         {
             if (lessons == null || lessons.Count == 0)
@@ -71,10 +97,10 @@ namespace Graduation_project.View.Windows
             percent = ((indexLesson + 1) * 100) / lessons.Count;
 
             ProgressTbl.Text = $"{percent}%";
-            ProgressBarPb.Value = percent;
+            ProgressBarPb.Value = percent ?? 0;
         }
 
-        // Сохранение прогресса в БД
+        // Сохранение прогресса
         private void SaveProgress()
         {
             if (!isLoaded || lessons.Count == 0)
@@ -82,8 +108,8 @@ namespace Graduation_project.View.Windows
 
             percent = ((indexLesson + 1) * 100) / lessons.Count;
 
-            currentCourse.IndexLesson = indexLesson;
-            currentCourse.Progress = percent;
+            userCourse.IndexLesson = indexLesson;
+            userCourse.Percent = percent;
 
             context.SaveChanges();
         }
@@ -94,12 +120,13 @@ namespace Graduation_project.View.Windows
             if (indexLesson < lessons.Count - 1)
             {
                 indexLesson++;
-                ShowLesson();     // обновляет UI
-                SaveProgress();   // сохраняет в БД
+                ShowLesson();
+                SaveProgress();
             }
             else
             {
                 MessageBox.Show("Курс закончен");
+
                 CourseWindow courseWindow = new CourseWindow();
                 courseWindow.Show();
                 this.Close();
@@ -122,7 +149,7 @@ namespace Graduation_project.View.Windows
         // Назад
         private void BackToCourses_Click(object sender, RoutedEventArgs e)
         {
-            CourseWindow courseWindow = new();
+            CourseWindow courseWindow = new CourseWindow();
             courseWindow.Show();
             this.Close();
         }
