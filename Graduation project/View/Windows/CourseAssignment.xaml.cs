@@ -12,7 +12,7 @@ namespace Graduation_project.View.Windows
         List<Lesson> lessons = new();
         Course currentCourse;
 
-        UserCourse userCourse;
+        UserCourse? userCourse;
 
         int? indexLesson;
         int? percent;
@@ -108,9 +108,9 @@ namespace Graduation_project.View.Windows
 
             percent = ((indexLesson + 1) * 100) / lessons.Count;
 
-            userCourse.IndexLesson = indexLesson;
-            userCourse.Percent = percent;
-
+                userCourse.IndexLesson = indexLesson;
+                userCourse.Percent = percent;
+            
             context.SaveChanges();
         }
 

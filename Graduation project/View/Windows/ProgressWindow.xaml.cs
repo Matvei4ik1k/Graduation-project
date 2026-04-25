@@ -95,5 +95,41 @@ namespace Graduation_project.View.Windows
                 Close();
             }
         }
+
+        private void ResetProgress_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (var context = new GraduationProjectContext())
+                {
+                    // Получаем все записи прогресса по книгам для текущего пользователя
+                    var userBooks = context.UserBooks.Where(ub => ub.UserId == UserSession.UserId).ToList();
+                    // Получаем все записи прогресса по курсам для текущего пользователя
+                    var userCourses = context.UserCourses.Where(uc => uc.UserId == UserSession.UserId).ToList();
+
+                    // Удаляем найденные записи
+                    context.UserBooks.RemoveRange(userBooks);
+                    context.UserCourses.RemoveRange(userCourses);
+
+                    // Сохраняем изменения
+                    int deleted = context.SaveChanges();
+                    MessageBox.Show($"Прогресс сброшен. Удалено записей: {deleted}", "Сброс прогресса", MessageBoxButton.OK, MessageBoxImage.Information);
+                    ProgressWindow progressWindow=new ();
+                    progressWindow.Show();
+                    this.Close();
+                }
+
+                // Перезагружаем текущее окно прогресса, чтобы отобразить нулевой прогресс
+                // (опционально – например, закрыть и открыть заново, или просто обновить UI)
+                // Если нужно – закрыть окно или обновить его содержимое.
+                // Например, можно просто закрыть это окно и показать главное меню:
+                // new MainWindow().Show();
+                // this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при сбросе прогресса: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

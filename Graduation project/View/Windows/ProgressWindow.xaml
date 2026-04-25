@@ -88,7 +88,9 @@
                         <TextBlock Margin="0 0 20 0" Text="12 уроков пройдено"/>
                         <TextBlock Margin="0 0 20 0" Text="24ч время обучения"/>
                         <TextBlock Text="7 дней подряд"/>
+
                     </WrapPanel>
+                    <Button Grid.Row="2" Height="20" Margin="0 25 0 0" FontSize="16" Content="Сбросить прогресс" Width="200" Foreground="Black" FontWeight="Bold" x:Name="ResetProgress" Click="ResetProgress_Click"/>
                 </Grid>
             </Border>
 
