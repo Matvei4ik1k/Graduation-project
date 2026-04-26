@@ -107,7 +107,6 @@ namespace Graduation_project.View.Windows
                 return;
 
             percent = ((indexLesson + 1) * 100) / lessons.Count;
-
                 userCourse.IndexLesson = indexLesson;
                 userCourse.Percent = percent;
             
