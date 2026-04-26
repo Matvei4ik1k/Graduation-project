@@ -14,7 +14,7 @@ namespace Graduation_project.View.Windows
         public ProgressWindow()
         {
             InitializeComponent();
-
+            NicknameTbl.Text = UserSession.UserName;
             int userId = UserSession.UserId;
 
             var userBooks = context.UserBooks

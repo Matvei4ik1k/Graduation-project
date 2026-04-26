@@ -44,8 +44,8 @@ namespace Graduation_project.View.Windows
                             context.SaveChanges();
                         }
                         MessageBox.Show("Успешная регистрация", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-                        MainWindow mainWindow = new MainWindow();
-                        mainWindow.Show();
+                        AuthorizationWindow authorizationWindow = new AuthorizationWindow();
+                        authorizationWindow.Show();
                         this.Close();
                     }
                     catch (Exception ex)
@@ -61,6 +61,70 @@ namespace Graduation_project.View.Windows
             AuthorizationWindow authorization = new AuthorizationWindow();
             authorization.Show();
             this.Close();
+        }
+
+        private void EmailTb_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (EmailTb.Text == "Введите почту")
+            {
+                EmailTb.Text = "";
+            }
+        }
+
+        private void EmailTb_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (EmailTb.Text == "")
+            {
+                EmailTb.Text = "Введите почту";
+            }
+        }
+
+        private void LoginTb_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (LoginTb.Text == "Введите логин")
+            {
+                LoginTb.Text = "";
+            }
+        }
+
+        private void LoginTb_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (LoginTb.Text == "")
+            {
+                LoginTb.Text = "Введите логин";
+            }
+        }
+
+        private void ThinkPasswordPb_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (ThinkPasswordPb.Password == "qwerqwer")
+            {
+                ThinkPasswordPb.Password = "";
+            }
+        }
+
+        private void ThinkPasswordPb_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (ThinkPasswordPb.Password == "")
+            {
+                ThinkPasswordPb.Password = "qwerqwer";
+            }
+        }
+
+        private void RepeatPasswordPb_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (RepeatPasswordPb.Password == "qwerqwer")
+            {
+                RepeatPasswordPb.Password = "";
+            }
+        }
+
+        private void RepeatPasswordPb_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (RepeatPasswordPb.Password == "")
+            {
+                RepeatPasswordPb.Password = "qwerqwer";
+            }
         }
     }
 }

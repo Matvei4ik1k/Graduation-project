@@ -48,7 +48,7 @@
         <Button Grid.Column="14" Grid.Row="2" Foreground="Black" x:Name="SettingsBtn" Content="Настройки" FontSize="24"/>
         <Rectangle Grid.Column="14" Grid.Row="3" Fill="Black" Width="132"/>
         <Rectangle Grid.Column="4" Grid.ColumnSpan="11" Grid.Row="5" Fill="Black" Width="1200"/>
-        <Button FontSize="24"  Foreground="Black" Grid.Column="17" Grid.Row="2" Content="Matvei4ik"/>
+        <TextBlock FontSize="24" x:Name="NicknameTbl"  Grid.Column="17" Grid.Row="2"/>
         <Button FontSize="24"  Foreground="Black" Grid.Column="18" Grid.Row="2" Content="RU"/>
     </Grid>
 </Window>

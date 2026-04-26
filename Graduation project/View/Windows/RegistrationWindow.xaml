@@ -125,13 +125,13 @@
             <TextBlock Grid.Row="4" Foreground="White" TextAlignment="Center" Text="Почта" FontSize="24"   />
 
             <Border Grid.Row="6" Height="50" Width="440" CornerRadius="15" Background="#46627F" >
-                <TextBox  VerticalContentAlignment="Center" x:Name="EmailTb" Height="40" Width="415" FontSize="18" Text="Введите вашу почту" />
+                <TextBox GotFocus="EmailTb_GotFocus" LostFocus="EmailTb_LostFocus" VerticalContentAlignment="Center" x:Name="EmailTb" Height="40" Width="415" FontSize="18" Text="Введите почту" />
             </Border>
 
             <TextBlock Grid.Row="8" TextAlignment="Center" Foreground="White" Text="Придумайте логин" FontSize="24"   />
 
             <Border Grid.Row="10" Height="50" Width="440" CornerRadius="15" Background="#46627F" >
-                <TextBox VerticalContentAlignment="Center" x:Name="LoginTb" Height="40" Width="415" FontSize="18" Text="Введите ваш логин" />
+                <TextBox GotFocus="LoginTb_GotFocus" LostFocus="LoginTb_LostFocus" VerticalContentAlignment="Center" x:Name="LoginTb" Height="40" Width="415" FontSize="18" Text="Введите логин" />
             </Border>
 
 
@@ -139,13 +139,13 @@
             <TextBlock Grid.Row="12" TextAlignment="Center" Foreground="White" Text="Придумайте пароль" FontSize="24"   />
 
             <Border Grid.Row="14" Height="50" Width="440" CornerRadius="15" Background="#46627F">
-                <PasswordBox Height="40" Width="415" x:Name="ThinkPasswordPb" VerticalContentAlignment="Center" FontSize="14" Password="qwerqwer" />
+                <PasswordBox GotFocus="ThinkPasswordPb_GotFocus" LostFocus="ThinkPasswordPb_LostFocus" Height="40" Width="415" x:Name="ThinkPasswordPb" VerticalContentAlignment="Center" FontSize="14" Password="qwerqwer" />
             </Border>
 
             <TextBlock Grid.Row="16" TextAlignment="Center" Foreground="White" Text="Повторите пароль" FontSize="24"   />
 
             <Border Grid.Row="18" Height="50" Width="440" CornerRadius="15" Background="#46627F">
-                <PasswordBox VerticalContentAlignment="Center" x:Name="RepeatPasswordPb" Height="40" Width="415"   FontSize="14" Password="qwerqwer" />
+                <PasswordBox GotFocus="RepeatPasswordPb_GotFocus" LostFocus="RepeatPasswordPb_LostFocus" VerticalContentAlignment="Center" x:Name="RepeatPasswordPb" Height="40" Width="415"   FontSize="14" Password="qwerqwer" />
             </Border>
 
             <Border Grid.Row="20" Background="#3498DB" Width="400" CornerRadius="10" >

@@ -13,9 +13,9 @@ public partial class Course
 
     public string? Description { get; set; }
 
-    public int? Hours { get; set; }
+    public string? Hours { get; set; }
 
-    public int? Modules { get; set; }
+    public string? Modules { get; set; }
 
     public virtual ICollection<Lesson> Lessons { get; set; } = new List<Lesson>();
 

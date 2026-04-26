@@ -56,7 +56,7 @@
             <Button Grid.Column="12" Grid.Row="2" Foreground="Black" x:Name="ProgressBtn" Content="Прогресс" FontSize="24" Click="ProgressBtn_Click"/>
             <Button Grid.Column="14" Grid.Row="2" Foreground="Black" x:Name="SettingsBtn" Content="Настройки" FontSize="24" Click="SettingsBtn_Click"/>
             <Rectangle Grid.Column="4" Grid.ColumnSpan="11" Grid.Row="5" Fill="Black" Width="1200"/>
-            <Button FontSize="24"  Foreground="Black" Grid.Column="17" Grid.Row="2" Content="Matvei4ik"/>
+            <TextBlock FontSize="24" x:Name="NicknameTbl"  Grid.Column="17" Grid.Row="2"/>
             <Button FontSize="24"  Foreground="Black" Grid.Column="18" Grid.Row="2" Content="RU"/>
         </Grid>
 
@@ -81,7 +81,7 @@
             </Grid.ColumnDefinitions>
 
             <Border Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" Padding="34 8 10 9" CornerRadius="10" Background="White">
-                <TextBox x:Name="SearchTb" TextChanged="SearchTb_TextChanged" Text="Поиск книг" VerticalContentAlignment="Center" BorderThickness="0" FontSize="16" Foreground="Black" Width="276" Height="24"  Opacity="0.25"/>
+                <TextBox x:Name="SearchTb" TextChanged="SearchTb_TextChanged"  VerticalContentAlignment="Center" BorderThickness="0" FontSize="16" Foreground="Black" Width="276" Height="24"  Opacity="0.25"/>
             </Border>
             <Image Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="22" Height="25" Source="/Icons/icons8-лупа-90.png" />
             <TextBlock Grid.Row="2" Grid.ColumnSpan="6" HorizontalAlignment="Center" Text="Каталог книг" FontSize="34" FontWeight="Bold" Foreground="Black"/>

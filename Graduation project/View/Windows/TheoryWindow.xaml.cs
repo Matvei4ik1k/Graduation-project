@@ -1,4 +1,5 @@
-﻿using Graduation_project.Model;
+﻿using Graduation_project.AppData;
+using Graduation_project.Model;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -13,6 +14,7 @@ namespace Graduation_project.View.Windows
         public TheoryWindow()
         {
             InitializeComponent();
+            NicknameTbl.Text = UserSession.UserName;
             allBooks = graduationProjectContext.Books.ToList();
             BookList.ItemsSource = allBooks;
         }

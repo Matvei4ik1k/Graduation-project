@@ -55,7 +55,7 @@
             <Button Grid.Column="12" Grid.Row="2" Foreground="Black" x:Name="ProgressBtn" Content="Прогресс" FontSize="24" Click="ProgressBtn_Click"/>
             <Button Grid.Column="14" Grid.Row="2" Foreground="Black" x:Name="SettingsBtn" Content="Настройки" FontSize="24" Click="SettingsBtn_Click"/>
             <Rectangle Grid.Column="4" Grid.ColumnSpan="11" Grid.Row="5" Fill="Black" Width="1200"/>
-            <Button FontSize="24"  Foreground="Black" Grid.Column="17" Grid.Row="2" Content="Matvei4ik"/>
+            <TextBlock FontSize="24" x:Name="NicknameTbl"  Grid.Column="17" Grid.Row="2"/>
             <Button FontSize="24"  Foreground="Black" Grid.Column="18" Grid.Row="2" Content="RU"/>
         </Grid>
 
@@ -89,7 +89,7 @@
 
 
             <Border Grid.Row="2" Grid.Column="10" Grid.ColumnSpan="3" Padding="34 8 10 9" CornerRadius="10" Background="White">
-                <TextBox Text="Поиск курсов" x:Name="SearchTb" TextChanged="SearchTb_TextChanged" Foreground="Black" Opacity="0.25" VerticalContentAlignment="Center" BorderThickness="0" FontSize="16" Width="276" Height="24"  />
+                <TextBox x:Name="SearchTb" TextChanged="SearchTb_TextChanged" Foreground="Black" Opacity="0.25" VerticalContentAlignment="Center" BorderThickness="0" FontSize="16" Width="276" Height="24"  />
             </Border>
             <Image Grid.Row="2" Grid.Column="12" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="22" Height="25" Source="/Icons/icons8-лупа-90.png" />
 
@@ -155,9 +155,9 @@
 
                                     <StackPanel Margin="10 0 10 10" HorizontalAlignment="Center" Grid.Row="4" Orientation="Horizontal">
                                         <Image VerticalAlignment="Bottom" Grid.Row="3" Margin="0 0 5 0" Height="17" Width="17" Source="/Icons/icons8-часы-96.png" />
-                                        <TextBlock VerticalAlignment="Bottom" Foreground="#4B5563" Margin="0 0 25 0" Text="4 часа" FontSize="14"/>
+                                        <TextBlock VerticalAlignment="Bottom" Foreground="#4B5563" Margin="0 0 25 0" Text="{Binding Hours}" FontSize="14"/>
                                         <Image VerticalAlignment="Bottom" Height="17" Margin="0 0 5 0" Width="17" Source="/Icons/icons8-листы-96.png" />
-                                        <TextBlock VerticalAlignment="Bottom" Foreground="#4B5563" Text="12 модулей" FontSize="14"/>
+                                        <TextBlock VerticalAlignment="Bottom" Foreground="#4B5563" Text="{Binding Modules}" FontSize="14"/>
                                     </StackPanel>
                                     
                                     <Border Grid.Row="5" CornerRadius="8" Margin="0 0 0 10" Background="#FFA83E" Width="260" HorizontalAlignment="Center">

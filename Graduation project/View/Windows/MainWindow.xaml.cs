@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Graduation_project.AppData;
+using System.Windows;
 
 namespace Graduation_project.View.Windows
 {
@@ -10,6 +11,7 @@ namespace Graduation_project.View.Windows
         public MainWindow()
         {
             InitializeComponent();
+            NicknameTbl.Text = UserSession.UserName;
         }
 
         private void TheoryBtn_Click(object sender, RoutedEventArgs e)
@@ -44,6 +46,20 @@ namespace Graduation_project.View.Windows
         {
             SettingsWindow settingsWindow = new SettingsWindow();
             settingsWindow.Show();
+            this.Close();
+        }
+
+        private void StartLearning_Click(object sender, RoutedEventArgs e)
+        {
+            TheoryWindow theoryWindow = new TheoryWindow();
+            theoryWindow.Show();
+            this.Close();
+        }
+
+        private void AboutTheCourses_Click(object sender, RoutedEventArgs e)
+        {
+            CourseWindow courseWindow = new CourseWindow();
+            courseWindow.Show();
             this.Close();
         }
     }

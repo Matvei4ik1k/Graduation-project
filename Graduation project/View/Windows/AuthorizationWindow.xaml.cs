@@ -64,5 +64,37 @@ namespace Graduation_project.View.Windows
             registration.Show();
             this.Close();
         }
+
+        private void LoginTb_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (LoginTb.Text=="Введите логин")
+            {
+            LoginTb.Text = "";
+            }
+        }
+
+        private void LoginTb_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (LoginTb.Text == "")
+            {
+                LoginTb.Text = "Введите логин";
+            }
+        }
+
+        private void PasswordPb_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (PasswordPb.Password == "qwerqwer")
+            {
+                PasswordPb.Password = "";
+            }
+        }
+
+        private void PasswordPb_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (PasswordPb.Password == "")
+            {
+                PasswordPb.Password = "qwerqwer";
+            }
+        }
     }
 }

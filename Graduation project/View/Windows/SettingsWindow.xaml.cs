@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Graduation_project.AppData;
+using System.Windows;
 
 namespace Graduation_project.View.Windows
 {
@@ -10,6 +11,7 @@ namespace Graduation_project.View.Windows
         public SettingsWindow()
         {
             InitializeComponent();
+            NicknameTbl.Text = UserSession.UserName;
         }
 
         private void HomeBtn_Click(object sender, RoutedEventArgs e)

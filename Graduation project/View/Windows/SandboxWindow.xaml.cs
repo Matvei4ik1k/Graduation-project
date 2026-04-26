@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Graduation_project.AppData;
+using System.Windows;
 namespace Graduation_project.View.Windows
 {
     public partial class SandboxWindow : Window
@@ -6,6 +7,7 @@ namespace Graduation_project.View.Windows
         public SandboxWindow()
         {
             InitializeComponent();
+            NicknameTbl.Text = UserSession.UserName;
             InitializeAsync();
             #region Начальный шаблон страницы
             CodeEditor.Text = @"<!DOCTYPE html>

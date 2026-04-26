@@ -1,4 +1,5 @@
-﻿using Graduation_project.Model;
+﻿using Graduation_project.AppData;
+using Graduation_project.Model;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -14,6 +15,7 @@ namespace Graduation_project.View.Windows
         public CourseWindow()
         {
             InitializeComponent();
+            NicknameTbl.Text = UserSession.UserName;
             allCourse = context.Courses.ToList();
             CourceList.ItemsSource = allCourse;
         }

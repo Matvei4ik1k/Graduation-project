@@ -117,12 +117,12 @@
 
             <TextBlock Grid.Row="4" Foreground="White" TextAlignment="Center" Text="Логин" FontSize="24"    />
             <Border Grid.Row="6" Height="50" Width="440" CornerRadius="15" Background="#46627F" >
-                <TextBox Height="40" Width="415" BorderThickness="0" x:Name="LoginTb" FontSize="18" VerticalContentAlignment="Center" Text="Введите ваш логин" CaretBrush="White"/>
+                <TextBox GotFocus="LoginTb_GotFocus"  LostFocus="LoginTb_LostFocus" Height="40" Width="415" BorderThickness="0" x:Name="LoginTb" FontSize="18" VerticalContentAlignment="Center" Text="Введите логин" CaretBrush="White"/>
             </Border>
 
             <TextBlock  Grid.Row="8" Foreground="White" TextAlignment="Center" Text="Пароль" FontSize="24"  />
             <Border Grid.Row="10" Height="50" Width="440" CornerRadius="15" Background="#46627F">
-                <PasswordBox Height="40" Width="415" x:Name="PasswordPb" VerticalContentAlignment="Center" BorderThickness="0" FontSize="14" Password="qwerqwer" />
+                <PasswordBox GotFocus="PasswordPb_GotFocus" LostFocus="PasswordPb_LostFocus" Height="40" Width="415" x:Name="PasswordPb" VerticalContentAlignment="Center" BorderThickness="0" FontSize="14" Password="qwerqwer" />
             </Border>
 
             <StackPanel Width="auto" Grid.Row="12" HorizontalAlignment="Center" Orientation="Horizontal">

@@ -59,7 +59,7 @@
             <Button Grid.Column="12" Grid.Row="2" Foreground="Black" x:Name="ProgressBtn" Content="Прогресс" FontSize="24" Click="ProgressBtn_Click"/>
             <Button Grid.Column="14" Grid.Row="2" Foreground="Black" x:Name="SettingsBtn" Content="Настройки" FontSize="24" Click="SettingsBtn_Click"/>
             <Rectangle Grid.Column="4" Grid.ColumnSpan="11" Grid.Row="5" Fill="Black" Width="1200"/>
-            <Button FontSize="24"  Foreground="Black" Grid.Column="17" Grid.Row="2" Content="Matvei4ik"/>
+            <TextBlock FontSize="24" x:Name="NicknameTbl"  Grid.Column="17" Grid.Row="2"/>
             <Button FontSize="24"  Foreground="Black" Grid.Column="18" Grid.Row="2" Content="RU"/>
         </Grid>
 
@@ -96,11 +96,11 @@
             <TextBlock  Grid.ColumnSpan="5" TextAlignment="Center" Foreground="#6B7280" TextWrapping="Wrap" Grid.Row="4" FontSize="20" Width="690" Text="Интерактивное обучение, мгновенная визуализация кода. Изучайте HTML, CSS и современные веб-технологии прямо в приложении"/>
 
             <Border Grid.Column="1" Grid.Row="6" Background="#2563EB" CornerRadius="12" Width="275" >
-                <Button FontSize="24" Content="Начать обучение" x:Name="StartLearning" Width="275"/>
+                <Button Click="StartLearning_Click" FontSize="24" Content="Начать обучение" x:Name="StartLearning" Width="275"/>
             </Border>
 
             <Border Grid.Column="3" HorizontalAlignment="Left" Grid.Row="6" Background="#FFA83E" CornerRadius="12" Width="275" >
-                <Button FontSize="24" Content="О курсах" Width="275"/>
+                <Button FontSize="24" x:Name="AboutTheCourses" Click="AboutTheCourses_Click" Content="О курсах" Width="275"/>
             </Border>
         </Grid>
 
