@@ -81,13 +81,17 @@ namespace Graduation_project.View.Windows
             Close();
         }
 
-       
+        private void SettingsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            new SettingsWindow().Show();
+            Close();
+        }
 
         private void ReadBook_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is FrameworkElement frameworkElement && frameworkElement.DataContext is BookProgressDto bookProgressDto)
+            if (sender is FrameworkElement el && el.DataContext is BookProgressDto dto)
             {
-                new TheoryRead(bookProgressDto.Book).Show();
+                new TheoryRead(dto.Book).Show();
                 Close();
             }
         }

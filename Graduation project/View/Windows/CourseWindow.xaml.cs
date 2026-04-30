@@ -48,7 +48,12 @@ namespace Graduation_project.View.Windows
             this.Close();
         }
 
-     
+        private void SettingsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsWindow settingsWindow = new SettingsWindow();
+            settingsWindow.Show();
+            this.Close();
+        }
 
         private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
         {

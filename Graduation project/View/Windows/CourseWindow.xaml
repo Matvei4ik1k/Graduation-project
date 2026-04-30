@@ -53,6 +53,7 @@
             <Rectangle Grid.Column="8" Grid.Row="3" Fill="Black" Width="78"/>
             <Button Grid.Column="10" Grid.Row="2" Foreground="Black" x:Name="SandboxBtn" Content="Песочница" FontSize="24" Click="SandboxBtn_Click"/>
             <Button Grid.Column="12" Grid.Row="2" Foreground="Black" x:Name="ProgressBtn" Content="Прогресс" FontSize="24" Click="ProgressBtn_Click"/>
+            <Button Grid.Column="14" Grid.Row="2" Foreground="Black" x:Name="SettingsBtn" Content="Настройки" FontSize="24" Click="SettingsBtn_Click"/>
             <Rectangle Grid.Column="4" Grid.ColumnSpan="11" Grid.Row="5" Fill="Black" Width="1200"/>
             <TextBlock FontSize="24" x:Name="NicknameTbl"  Grid.Column="17" Grid.Row="2"/>
             <Button FontSize="24"  Foreground="Black" Grid.Column="18" Grid.Row="2" Content="RU"/>
@@ -160,7 +161,7 @@
                                     </StackPanel>
                                     
                                     <Border Grid.Row="5" CornerRadius="8" Margin="0 0 0 10" Background="#FFA83E" Width="260" HorizontalAlignment="Center">
-                                        <Button FontSize="14" Height="25" x:Name="CourceBtn" Click="CourceBtn_Click" CommandParameter="{Binding}" Width="260" Content="Читать"/>
+                                        <Button FontSize="14" x:Name="CourceBtn" Click="CourceBtn_Click" CommandParameter="{Binding}" Width="260" Content="Читать"/>
                                     </Border>
 
                                 </Grid>

@@ -4,19 +4,26 @@ using System.Windows;
 namespace Graduation_project.View.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для SettingsWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SettingsWindow : Window
     {
-        public MainWindow()
+        public SettingsWindow()
         {
             InitializeComponent();
             NicknameTbl.Text = UserSession.UserName;
         }
 
+        private void HomeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+
         private void TheoryBtn_Click(object sender, RoutedEventArgs e)
         {
-            TheoryWindow theoryWindow = new TheoryWindow();
+            TheoryWindow theoryWindow= new TheoryWindow();
             theoryWindow.Show();
             this.Close();
         }
@@ -39,27 +46,6 @@ namespace Graduation_project.View.Windows
         {
             ProgressWindow progressWindow = new ProgressWindow();
             progressWindow.Show();
-            this.Close();
-        }
-
-        private void SettingsBtn_Click(object sender, RoutedEventArgs e)
-        {
-            SettingsWindow settingsWindow = new SettingsWindow();
-            settingsWindow.Show();
-            this.Close();
-        }
-
-        private void StartLearning_Click(object sender, RoutedEventArgs e)
-        {
-            TheoryWindow theoryWindow = new TheoryWindow();
-            theoryWindow.Show();
-            this.Close();
-        }
-
-        private void AboutTheCourses_Click(object sender, RoutedEventArgs e)
-        {
-            CourseWindow courseWindow = new CourseWindow();
-            courseWindow.Show();
             this.Close();
         }
     }
