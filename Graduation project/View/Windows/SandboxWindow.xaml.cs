@@ -59,12 +59,7 @@ namespace Graduation_project.View.Windows
             progressWindow.Show();
             this.Close();
         }
-        private void SettingsBtn_Click(object sender, RoutedEventArgs e)
-        {
-            SettingsWindow settingsWindow = new ();
-            settingsWindow.Show();
-            this.Close();
-        }
+       
 
     }
 

@@ -9,7 +9,7 @@ namespace Graduation_project.AppData
 {
     public class BookProgressDto
     {
-        public Book Book { get; set; }
+        public Book? Book { get; set; }
         public int Percent { get; set; }
     }
 }
