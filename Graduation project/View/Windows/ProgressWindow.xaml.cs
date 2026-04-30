@@ -81,11 +81,7 @@ namespace Graduation_project.View.Windows
             Close();
         }
 
-        private void SettingsBtn_Click(object sender, RoutedEventArgs e)
-        {
-            new SettingsWindow().Show();
-            Close();
-        }
+      
 
         private void ReadBook_Click(object sender, RoutedEventArgs e)
         {
