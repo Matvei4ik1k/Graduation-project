@@ -124,13 +124,7 @@
             <Border Grid.Row="10" Height="50" Width="440" CornerRadius="15" Background="#46627F">
                 <PasswordBox GotFocus="PasswordPb_GotFocus" LostFocus="PasswordPb_LostFocus" Height="40" Width="415" x:Name="PasswordPb" VerticalContentAlignment="Center" BorderThickness="0" FontSize="14" Password="qwerqwer" />
             </Border>
-
-            <StackPanel Width="auto" Grid.Row="12" HorizontalAlignment="Center" Orientation="Horizontal">
-                <CheckBox/>
-                <TextBlock Foreground="White" Text="Запомнить меня"  Height="30" FontSize="18"  VerticalAlignment="Center"/>
-            </StackPanel>
-
-            <Button FontSize="18" Width="150"  Content="Забыли пароль?" Grid.Row="14" />
+            
             <Border Grid.Row="16" Background="#3498DB" Width="400" CornerRadius="10" >
                 <Button  Height="60" Width="400" Content="Войти" FontSize="24" Name="LoginBtn" Click="LoginBtn_Click" />
             </Border>
