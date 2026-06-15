@@ -1,5 +1,8 @@
 ﻿using Graduation_project.AppData;
+using Microsoft.Web.WebView2.Core;
+using System;
 using System.Windows;
+
 namespace Graduation_project.View.Windows
 {
     public partial class SandboxWindow : Window
@@ -7,60 +10,78 @@ namespace Graduation_project.View.Windows
         public SandboxWindow()
         {
             InitializeComponent();
+
             NicknameTbl.Text = UserSession.UserName;
-            InitializeAsync();
-            #region Начальный шаблон страницы
+
             CodeEditor.Text = @"<!DOCTYPE html>
 <html>
-    <body>
-        <h1>Header</h1>
-        <p>Content goes here...</p>
-    </body>
+<head>
+<meta charset='utf-8'>
+<style>
+html, body{
+    background:white;
+    color:black;
+    margin:20px;
+}
+</style>
+</head>
+<body>
+<h1>Header</h1>
+<p>Content goes here...</p>
+</body>
 </html>";
-            #endregion
+
+            Loaded += SandboxWindow_Loaded;
             CodeEditor.TextChanged += CodeEditor_TextChanged;
         }
 
-        private async void InitializeAsync()
+        private async void SandboxWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            await Preview.EnsureCoreWebView2Async(null);
-            Preview.NavigateToString(CodeEditor.Text);
+            var options = new CoreWebView2EnvironmentOptions(
+                "--disable-features=msWebOOUI,msPdfOOUI");
+
+            var env = await CoreWebView2Environment.CreateAsync(
+                null,
+                null,
+                options);
+
+            await Preview.EnsureCoreWebView2Async(env);
+
+            Preview.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
+
+            Preview.CoreWebView2.NavigateToString(CodeEditor.Text);
         }
 
         private void CodeEditor_TextChanged(object? sender, EventArgs e)
         {
             if (Preview.CoreWebView2 != null)
             {
-                Preview.NavigateToString(CodeEditor.Text);
+                Preview.CoreWebView2.NavigateToString(CodeEditor.Text);
             }
         }
 
         private void HomeBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new ();
-            mainWindow.Show();
-            this.Close();
+            new MainWindow().Show();
+            Close();
         }
+
         private void TheoryBtn_Click(object sender, RoutedEventArgs e)
         {
-            TheoryWindow theoryWindow = new ();
-            theoryWindow.Show();
-            this.Close();
+            new TheoryWindow().Show();
+            Close();
         }
+
         private void CourceBtn_Click(object sender, RoutedEventArgs e)
         {
-            CourseWindow courseWindow = new ();
-            courseWindow.Show();
-            this.Close();
+            new CourseWindow().Show();
+            Close();
         }
+
         private void ProgressBtn_Click(object sender, RoutedEventArgs e)
         {
-            ProgressWindow progressWindow = new ();
-            progressWindow.Show();
-            this.Close();
+            new ProgressWindow().Show();
+            Close();
         }
-       
-
     }
-
 }
